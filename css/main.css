@@ -2905,3 +2905,6 @@ ul.breadcrumb li:last-child {
     margin-bottom: 10px;
   }
 }
+.archive .collection-title {
+  display: none !important;
+}
