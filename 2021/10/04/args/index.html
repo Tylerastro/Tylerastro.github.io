@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tylerastro.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="第一次看到*args和**kwargs是在使用matplotlib時候，參考方法(method)所看到的，當時還不懂這所代表的意義，但在後面畫圖過程，的確發現一些不在document裡面的參數，可以透過給予Keyword Argument的方法進行細部的調整。當下察覺到，或許文件給的**kwargs代表的就是可以給這些細部參數。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What are *args and **kwargs?">
+<meta property="og:url" content="https://tylerastro.github.io/2021/10/04/args/index.html">
+<meta property="og:site_name" content="Tyler&#39;s Blog">
+<meta property="og:description" content="第一次看到*args和**kwargs是在使用matplotlib時候，參考方法(method)所看到的，當時還不懂這所代表的意義，但在後面畫圖過程，的確發現一些不在document裡面的參數，可以透過給予Keyword Argument的方法進行細部的調整。當下察覺到，或許文件給的**kwargs代表的就是可以給這些細部參數。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tylerastro.github.io/2021/10/04/args/kwargs.png">
+<meta property="article:published_time" content="2021-10-04T04:45:58.000Z">
+<meta property="article:modified_time" content="2021-10-04T04:57:19.088Z">
+<meta property="article:author" content="Han Tang Lin">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tylerastro.github.io/2021/10/04/args/kwargs.png">
+
+
+<link rel="canonical" href="https://tylerastro.github.io/2021/10/04/args/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://tylerastro.github.io/2021/10/04/args/","path":"2021/10/04/args/","title":"What are *args and **kwargs?"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>What are *args and **kwargs? | Tyler's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Tyler's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-do-and-do"><span class="nav-number">1.</span> <span class="nav-text">What do * and ** do?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E7%A2%BA%E5%AE%9A%E6%88%91%E7%9A%84function%E8%A6%81%E6%9C%89%E5%B9%BE%E5%80%8Bargument%E6%99%82"><span class="nav-number">1.1.</span> <span class="nav-text">不確定我的function要有幾個argument時</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%9D%E5%B0%8Dkeyword-arguments%E5%81%9Aunpacking"><span class="nav-number">1.2.</span> <span class="nav-text">針對keyword arguments做unpacking</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-did-it-help-my-class-function"><span class="nav-number">2.</span> <span class="nav-text">How did it help my class function?</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Han Tang Lin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Tylerastro" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Tylerastro" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w39398898@gmail.com" title="E-Mail → mailto:w39398898@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://astrocodertyler.medium.com/" title="Medium → https:&#x2F;&#x2F;astrocodertyler.medium.com" rel="noopener" target="_blank"><i class="fab fa-medium fa-fw"></i>Medium</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://tylerastro.github.io/2021/10/04/args/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Han Tang Lin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tyler's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          What are *args and **kwargs?
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-10-04 12:45:58 / Modified: 12:57:19" itemprop="dateCreated datePublished" datetime="2021-10-04T12:45:58+08:00">2021-10-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>第一次看到*args和**kwargs是在使用matplotlib時候，參考方法(method)所看到的，當時還不懂這所代表的意義，但在後面畫圖過程，的確發現一些不在document裡面的參數，可以透過給予Keyword Argument的方法進行細部的調整。當下察覺到，或許文件給的**kwargs代表的就是可以給這些細部參數。</p>
+<p><img src="/2021/10/04/args/kwargs.png"></p>
+<span id="more"></span>
+
+<p>之後在地質所做RA時，因為需要寫一套程式幫助資料處理，需要從yaml寫入地質材料代碼，在stackoverflow爬完文後，決定使用class搭配dict的方式寫入。當下一直在想要如何把字典的結構轉化成class的形式，所以可以很直覺的使用config.Tex, config.plot等來增加程式碼可讀性。</p>
+<p>這時候問題就來了，這邊的**到底是什麼意思呢？很明顯的kwargs或者args並不是寫死的，而是*以及**這兩個operator在作用。</p>
+<figure class="highlight python"><figcaption><span>Attribute Dictionary</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AttrDict</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, **entries</span>):</span></span><br><span class="line">        self.__dict__.update(entries)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="What-do-and-do"><a href="#What-do-and-do" class="headerlink" title="What do * and ** do?"></a>What do * and ** do?</h1><p>從<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters">What does ** (double star/asterisk) and * (star/asterisk) do for parameters?</a>來看，stack overflow上已經有問過很多次類似問題，也算是很常見的問題。<br>從幾個想法來切入，就可以了解*和**的使用時機了。</p>
+<h2 id="不確定我的function要有幾個argument時"><a href="#不確定我的function要有幾個argument時" class="headerlink" title="不確定我的function要有幾個argument時"></a>不確定我的function要有幾個argument時</h2><p>以簡單的加法為例，add的寫法只能對兩個輸入進行加法運算，但如果我有10個數字要相加，難道我要輸入9次嗎？我當然會想要一次輸入，然後回傳加總值。</p>
+<figure class="highlight python"><figcaption><span>Addition</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">a,b</span>):</span></span><br><span class="line">    <span class="keyword">return</span> a+b</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>這時候就需要仰賴*args的寫法，為了將屬性了解得更明白，我們再加上<code>print(type(args))</code>和<code>print(args)</code>來看將args帶入function，他們到底以什麼形式存在。<br>很明顯的使用*args，會把所有參數寫成是一個tuple，但注意，這邊所指的是non-keyword argument，也就是不是帶入add(a=1,b=2)，帶有keyword的參數。</p>
+<p>因為是tuple的形式，他在function裡面可以進行迭代，這樣可以在不確定有幾個arguments底下，把所有arguments讀進來。</p>
+<figure class="highlight python"><figcaption><span>Addition</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">*args</span>):</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(args))  --&gt;  &lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">tuple</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">    <span class="title">print</span>(<span class="params">args</span>)        --&gt;  (2, 3, 4)</span></span><br><span class="line"><span class="class">    <span class="keyword">return</span> <span class="built_in">sum</span>(args)</span></span><br><span class="line"><span class="class"></span></span><br></pre></td></tr></table></figure>
+
+
+<p>假設今天在上課分組，三人為一組，有兩人已經找好了，那第三人所湊成的組合是長怎樣？<br>透過group，我們可以把第三人的排列組合寫出來，這邊要注意的是arguments在function裡面的順序。</p>
+<blockquote>
+<p>這邊的原因在於有default值的參數必須放在後面，以程式來寫，<code>def group(a = &#39;Lisa&#39;, b )</code>的寫法會得到<font color=#FF0000> SyntaxError</font> non-default argument follows default argument，正確寫法要把兩者顛倒過來<code>def group(b, a = &#39;Lisa&#39;)</code></p>
+</blockquote>
+<p>如果對於f-string還不熟悉，可以參考我之前所寫的<a href="https://tylerastro.github.io/2021/08/28/Strings/">Python Handling Strings</a></p>
+<figure class="highlight python"><figcaption><span>Grouping</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">group</span>(<span class="params">*args, a = <span class="string">&#x27;Lisa&#x27;</span>, b = <span class="string">&#x27;Jessie&#x27;</span></span>):</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;<span class="subst">&#123;a&#125;</span>, <span class="subst">&#123;b&#125;</span> and <span class="subst">&#123;name&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">group(&#x27;Tyler&#x27;,&#x27;Ken&#x27;,&#x27;Siri&#x27;)</span><br><span class="line"></span><br><span class="line">Lisa, Jessie and Tyler</span><br><span class="line">Lisa, Jessie and Ken</span><br><span class="line">Lisa, Jessie and Siri</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="針對keyword-arguments做unpacking"><a href="#針對keyword-arguments做unpacking" class="headerlink" title="針對keyword arguments做unpacking"></a>針對keyword arguments做unpacking</h2><figure class="highlight python"><figcaption><span>Grouping</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">icecream</span>(<span class="params">**kwargs</span>):</span></span><br><span class="line">    <span class="keyword">if</span> kwargs[<span class="string">&#x27;cone&#x27;</span>]:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;Here is your <span class="subst">&#123;kwargs[<span class="string">&quot;flavour&quot;</span>]&#125;</span> icecream with a honey cone&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;Here is your <span class="subst">&#123;kwargs[<span class="string">&quot;flavour&quot;</span>]&#125;</span> icecream in cup&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">icecream(flavour = &#x27;chocolate&#x27;,cone=False)</span><br><span class="line"></span><br><span class="line">--&gt; Here is your chocolate icecream in cup</span><br><span class="line"></span><br><span class="line">icecream(flavour = &#x27;vanilla&#x27;,cone=True)</span><br><span class="line"></span><br><span class="line">--&gt; Here is your vanilla icecream with a honey cone</span><br></pre></td></tr></table></figure>
+
+<p>看一下上面賣冰淇淋的範例，其實我們就知道同樣身為unpacking operator的*和**，差別只有在對於positional argument轉成tuple形式或者將keyword argument做成字典形式，針對不同樣的情形，可以把兩者合併在一個function裡面。</p>
+<h1 id="How-did-it-help-my-class-function"><a href="#How-did-it-help-my-class-function" class="headerlink" title="How did it help my class function?"></a>How did it help my class function?</h1><p>再度回到我最原始的初衷，利用class來快速呼叫我的設定值字典。</p>
+<figure class="highlight python"><figcaption><span>Attribute Dictionary</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AttrDict</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, **entries</span>):</span></span><br><span class="line">        self.__dict__.update(entries)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">looking = AttrDict(cool=&#x27;Yes&#x27;,handsome=&#x27;No&#x27;)</span><br><span class="line"></span><br><span class="line">looking.cool  --&gt; &#x27;Yes&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>或者帶入字典</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">person = dict(cool=&#x27;Yes&#x27;,handsome=&#x27;No&#x27;)</span><br><span class="line">looking = AttrDict(person)</span><br><span class="line"></span><br><span class="line">looking.cool  --&gt; &#x27;Yes&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/28/Strings/" rel="prev" title="Python Handling Strings">
+                  <i class="fa fa-chevron-left"></i> Python Handling Strings
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Han Tang Lin</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">15k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">13 mins.</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
