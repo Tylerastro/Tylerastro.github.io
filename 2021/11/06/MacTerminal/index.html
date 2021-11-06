@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tylerastro.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="在原始Terminal開發許久後，終於走向iTerm2的懷抱…本篇文章含有大量沒碰過的知識面，瀏覽多方文章後寫下，希望成為自己的知識，如果換了筆電也可以快速回復設定。  Homebrew &#x2F; wget在安裝調教電腦之前，下載的工具要有，Homebrew，Homebrew 可以幫你安裝許多原本在MacOS上面沒有，但是很有用的東西，在官網上有詳細的說明了。在安裝完homebrew之後，我們也可以安裝">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MacOS Terminal">
+<meta property="og:url" content="https://tylerastro.github.io/2021/11/06/MacTerminal/index.html">
+<meta property="og:site_name" content="Tyler&#39;s Blog">
+<meta property="og:description" content="在原始Terminal開發許久後，終於走向iTerm2的懷抱…本篇文章含有大量沒碰過的知識面，瀏覽多方文章後寫下，希望成為自己的知識，如果換了筆電也可以快速回復設定。  Homebrew &#x2F; wget在安裝調教電腦之前，下載的工具要有，Homebrew，Homebrew 可以幫你安裝許多原本在MacOS上面沒有，但是很有用的東西，在官網上有詳細的說明了。在安裝完homebrew之後，我們也可以安裝">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tylerastro.github.io/2021/11/06/MacTerminal/Final.png">
+<meta property="article:published_time" content="2021-11-06T13:13:40.000Z">
+<meta property="article:modified_time" content="2021-11-06T13:15:47.906Z">
+<meta property="article:author" content="Han Tang Lin">
+<meta property="article:tag" content="MacOS">
+<meta property="article:tag" content="iTerm2">
+<meta property="article:tag" content="Terminal">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tylerastro.github.io/2021/11/06/MacTerminal/Final.png">
+
+
+<link rel="canonical" href="https://tylerastro.github.io/2021/11/06/MacTerminal/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://tylerastro.github.io/2021/11/06/MacTerminal/","path":"2021/11/06/MacTerminal/","title":"MacOS Terminal"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MacOS Terminal | Tyler's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Tyler's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Homebrew-wget"><span class="nav-number">1.</span> <span class="nav-text">Homebrew &#x2F; wget</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iTerm2"><span class="nav-number">2.</span> <span class="nav-text">iTerm2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D"><span class="nav-number">2.1.</span> <span class="nav-text">安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iTerm2-Font%E8%A8%AD%E5%AE%9A"><span class="nav-number">2.2.</span> <span class="nav-text">iTerm2 Font設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iTerm2-Color%E8%A8%AD%E5%AE%9A"><span class="nav-number">2.3.</span> <span class="nav-text">iTerm2 Color設定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#oh-my-zsh"><span class="nav-number">3.</span> <span class="nav-text">oh-my-zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D-1"><span class="nav-number">3.1.</span> <span class="nav-text">安裝</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D%E5%AE%8C%E6%88%91%E5%80%91%E7%9A%84%E6%AD%A5%E9%A9%9F%E5%B0%B1%E5%BF%AB%E5%AE%8C%E6%88%90%E4%BA%86"><span class="nav-number">4.</span> <span class="nav-text">安裝完我們的步驟就快完成了</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Common-commands"><span class="nav-number">4.0.1.</span> <span class="nav-text">Common commands</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-number">4.1.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Han Tang Lin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Tylerastro" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Tylerastro" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w39398898@gmail.com" title="E-Mail → mailto:w39398898@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://astrocodertyler.medium.com/" title="Medium → https:&#x2F;&#x2F;astrocodertyler.medium.com" rel="noopener" target="_blank"><i class="fab fa-medium fa-fw"></i>Medium</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://tylerastro.github.io/2021/11/06/MacTerminal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Han Tang Lin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tyler's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MacOS Terminal
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-11-06 21:13:40 / Modified: 21:15:47" itemprop="dateCreated datePublished" datetime="2021-11-06T21:13:40+08:00">2021-11-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>在原始Terminal開發許久後，終於走向iTerm2的懷抱…<br>本篇文章含有大量沒碰過的知識面，瀏覽多方文章後寫下，希望成為自己的知識，<del>如果換了筆電也可以快速回復設定</del>。</p>
+<p><img src="/2021/11/06/MacTerminal/Final.png" alt="Final result"><span class="image-caption">Final result</span></p>
+<h2 id="Homebrew-wget"><a href="#Homebrew-wget" class="headerlink" title="Homebrew / wget"></a>Homebrew / wget</h2><p>在安裝調教電腦之前，下載的工具要有，<a target="_blank" rel="noopener" href="https://brew.sh/index_zh-tw">Homebrew</a>，Homebrew 可以幫你安裝許多原本在MacOS上面沒有，但是很有用的東西，在官網上有詳細的說明了。<br>在安裝完homebrew之後，我們也可以安裝在linux系統上常看到的wget:<code>brew install wget</code></p>
+<p>當我們有工具之後，就可以準備調教自己的介面了💻</p>
+<span id="more"></span>
+
+<h2 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h2><blockquote>
+<p>根據官方說法：身為Terminal的替代品以及iTerm的下一代，如果你花很多時間在終端機裡，你會發現iTerm2可以幫助你完成許多小事情。</p>
+</blockquote>
+<p>對於剛接觸的人大概就會覺得iTerm2就是更帥的terminal而已，就像是我😂</p>
+<h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><p>安裝iTerm2很簡單，如果接著前面有安裝好homebrew，那只需要在終端機輸入<code>brew cask install iterm2</code>即可安裝。<br>如果沒有homebrew，也可以在官網上面下載安裝檔，回來進行安裝。</p>
+<p>剛裝完回來應該會發現怎麼醜醜的，沒有大家的好看，不要緊張，我們還需要再多安裝oh-my-zsh來美化一下。</p>
+<h3 id="iTerm2-Font設定"><a href="#iTerm2-Font設定" class="headerlink" title="iTerm2 Font設定"></a>iTerm2 Font設定</h3><p>在走到下一步之前，我們還需要在iTerm2裡面做設定，首先是字體，因為在不少主題裡面會運用到圖案，這些圖案在原本字體裡面是不存在的，比如說python, github等等的圖示，所以我們需要額外安裝字體。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone git://github.com/powerline/fonts ~/.powerline_fonts</span><br><span class="line">cd ~/.powerline_fonts</span><br><span class="line">./install.sh</span><br></pre></td></tr></table></figure>
+<p>安裝完也記得在Preference &gt; Profile &gt; Text &gt; Font 去改字體設定，</p>
+<h3 id="iTerm2-Color設定"><a href="#iTerm2-Color設定" class="headerlink" title="iTerm2 Color設定"></a>iTerm2 Color設定</h3><p>在Preference &gt; Profile &gt; Color 底下有color presets，大量模板可以在<a target="_blank" rel="noopener" href="https://github.com/mbadolato/iTerm2-Color-Schemes#installation-instructions">iTerm2-Color-Schemes repo</a>找到，建議將整個clone下來，之後在color presets選取import，在資料夾底下的schemes挑喜歡的import。</p>
+<p>我使用的是Tomorrow Night Eighties, 另外我覺得Solarized light也不錯，不過在淺色的訊息就可能看不到。</p>
+<hr>
+<h2 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h2><p>Oh-my-zsh 是一個zsh的framework，可以讓你的terminal看起來更舒適，更像專業的coder!</p>
+<h3 id="安裝-1"><a href="#安裝-1" class="headerlink" title="安裝"></a>安裝</h3><p>由於MacOS原生就是用zsh，所以這裡沒有特別安裝zsh。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 安裝 zsh</span><br><span class="line">brew install zsh</span><br><span class="line"></span><br><span class="line"># 預設 zsh</span><br><span class="line">sudo sh -c &quot;echo $(which zsh) &gt;&gt; /etc/shells&quot; </span><br><span class="line">chsh -s $(which zsh)</span><br><span class="line"></span><br><span class="line"># 切換預設shell</span><br><span class="line"></span><br><span class="line">chsh -s /bin/bash</span><br><span class="line"></span><br><span class="line">chsh -s /usr/loacl/bin/zsh</span><br></pre></td></tr></table></figure>
+
+
+<p>安裝方法很簡單，在<a target="_blank" rel="noopener" href="https://ohmyz.sh/#install">oh-my-zsh</a>官網裡就有指令，看你是要用哪種方式安裝</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 擇一方式安裝即可</span><br><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</span><br><span class="line">sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="安裝完我們的步驟就快完成了"><a href="#安裝完我們的步驟就快完成了" class="headerlink" title="安裝完我們的步驟就快完成了"></a>安裝完我們的步驟就快完成了</h2><p>接下來就是要選擇好想要的主題，原本<code>/Users/tyler/.oh-my-zsh/themes</code>底下就已經安裝好許多主題，如果沒有打開隱藏檔案，<code>cmd + shift + .</code>即可開啟及關閉。 要改變主題以及細節，到<code>/Users/tyler/.zshrc</code>底下，<code>ZSH_THEME=&quot;robbyrussell&quot;</code>，更改後方名稱即可。</p>
+<p>但大部分人不會滿足於預配的主題會在外面找其他主題，底下也提供其他人推薦的spaceship, common, etc. 我個人最喜歡的是<a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k#oh-my-zsh">powerlevel10k</a>，在過程中會自動幫你安裝字體，調整顯示方式等等，安裝方式在GitHub上面有。<br>TL;DR<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $&#123;ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom&#125;/themes/powerlevel10k</span><br><span class="line"></span><br><span class="line"># set</span><br><span class="line">ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot; in ~/.zshrc.</span><br></pre></td></tr></table></figure><br>如果後來對於顯示還是不滿意，也可以直接<code>p10k configure</code>進行設定。</p>
+<h4 id="Common-commands"><a href="#Common-commands" class="headerlink" title="Common commands"></a>Common commands</h4><ul>
+<li>To install oh-my-zsh <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh</span><br><span class="line">sh install.sh</span><br></pre></td></tr></table></figure></li>
+<li>To uninstall oh-my-zsh <code>uninstall_oh_my_zsh</code></li>
+<li>Keep Conda environment <code>conda activate base</code></li>
+<li>disable conda environment <code>conda deactivate</code></li>
+<li>disable default conda environment <code>conda config --set auto_activate_base false</code></li>
+<li>Apply zshrc setting <code>source ~/.zshrc</code></li>
+<li>Search fonts <code>brew search nerd</code></li>
+<li>install fonts <code>brew install [font_name]</code></li>
+</ul>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/spaceship-prompt/spaceship-prompt">spaceship theme repo</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k#oh-my-zsh">powerlevel10k theme repo</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jackharrisonsherlock/common">common theme repo</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@jinghua.shih/mac-setup-%E8%AE%93%E4%BD%A0%E7%9A%84%E9%96%8B%E7%99%BC%E9%80%9F%E5%BA%A6%E5%A4%A7%E8%BA%8D%E9%80%B2-cd07fa327aaf">[Mac Setup] 讓你的開發速度大躍進的好工具們</a></li>
+<li><a target="_blank" rel="noopener" href="https://sourabhbajaj.com/mac-setup/">macOS Setup Guide</a></li>
+<li><a target="_blank" rel="noopener" href="https://angela52799.medium.com/%E6%95%99%E7%B7%B4-%E6%88%91%E6%83%B3%E8%A6%81%E5%8F%AF%E6%84%9B%E7%9A%84-iterm2-d9b598d8d087">教練！我想要可愛的 iTerm2！</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/External-themes">oh-my-zsh external themes repo wiki</a></li>
+<li><a target="_blank" rel="noopener" href="https://myapollo.com.tw/zh-tw/iterm2-shortcut-keys/">iTerm2 設定與常用快捷鍵</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/statementdog-engineering/prettify-your-zsh-command-line-prompt-3ca2acc967f">超簡單！十分鐘打造漂亮又好用的 zsh command line 環境</a></li>
+<li><a target="_blank" rel="noopener" href="https://iterm2.com/features.html">iTerm2</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/%E6%95%B8%E6%93%9A%E4%B8%8D%E6%AD%A2-not-only-data/macos-%E7%9A%84-terminal-%E5%A4%A7%E6%94%B9%E9%80%A0-iterms-oh-my-zsh-%E5%85%A8%E6%94%BB%E7%95%A5-77d5aae87b10">如何讓 Terminal 看起來好用又好看｜iTerms 2 + Oh-my-zsh 全攻略</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MacOS/" rel="tag"># MacOS</a>
+              <a href="/tags/iTerm2/" rel="tag"># iTerm2</a>
+              <a href="/tags/Terminal/" rel="tag"># Terminal</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/10/04/args/" rel="prev" title="What are *args and **kwargs?">
+                  <i class="fa fa-chevron-left"></i> What are *args and **kwargs?
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Han Tang Lin</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">17k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">16 mins.</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
