@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tylerastro.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="在不同電腦上所安裝的Text Editor或者code editor, 亦或是IDE 都不盡相同，如果是要在別人電腦或者是伺服器管理員，如果要多方管理，選擇使用預設安裝的編輯器就會方便許多。Vim是很多系統上原有的文字編輯器，透過vim file_name可以快速編輯內容，然而vim的學習成本並不低，直接有一張cheetsheet也無法直接幫助沒基礎的人，這些原因催促了這篇文章來快速上手。 Wha">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim">
+<meta property="og:url" content="https://tylerastro.github.io/2021/12/24/Vim/index.html">
+<meta property="og:site_name" content="Tyler&#39;s Blog">
+<meta property="og:description" content="在不同電腦上所安裝的Text Editor或者code editor, 亦或是IDE 都不盡相同，如果是要在別人電腦或者是伺服器管理員，如果要多方管理，選擇使用預設安裝的編輯器就會方便許多。Vim是很多系統上原有的文字編輯器，透過vim file_name可以快速編輯內容，然而vim的學習成本並不低，直接有一張cheetsheet也無法直接幫助沒基礎的人，這些原因催促了這篇文章來快速上手。 Wha">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tylerastro.github.io/2021/12/24/Vim/vim.png">
+<meta property="og:image" content="https://tylerastro.github.io/2021/12/24/Vim/q.png">
+<meta property="og:image" content="https://tylerastro.github.io/2021/12/24/Vim/para.gif">
+<meta property="og:image" content="https://tylerastro.github.io/2021/12/24/Vim/move_around.gif">
+<meta property="og:image" content="https://tylerastro.github.io/2021/12/24/Vim/cw.gif">
+<meta property="article:published_time" content="2021-12-24T04:09:16.000Z">
+<meta property="article:modified_time" content="2021-12-24T04:14:01.197Z">
+<meta property="article:author" content="Han Tang Lin">
+<meta property="article:tag" content="Text Editor">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tylerastro.github.io/2021/12/24/Vim/vim.png">
+
+
+<link rel="canonical" href="https://tylerastro.github.io/2021/12/24/Vim/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://tylerastro.github.io/2021/12/24/Vim/","path":"2021/12/24/Vim/","title":"Vim"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Vim | Tyler's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Tyler's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-Why-is-Vim"><span class="nav-number">1.</span> <span class="nav-text">What&#x2F;Why is Vim</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AA%94%E6%A1%88%E9%96%8B%E5%95%9F%E8%88%87%E9%97%9C%E9%96%89"><span class="nav-number">2.1.</span> <span class="nav-text">檔案開啟與關閉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%AB%E5%85%A5%E6%AA%94%E6%A1%88"><span class="nav-number">2.2.</span> <span class="nav-text">寫入檔案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8B%95%E6%B8%B8%E6%A8%99"><span class="nav-number">2.3.</span> <span class="nav-text">移動游標</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AE%B5%E8%90%BD%E7%A7%BB%E5%8B%95"><span class="nav-number">2.3.1.</span> <span class="nav-text">段落移動</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E9%96%93%E7%A7%BB%E5%8B%95"><span class="nav-number">2.3.2.</span> <span class="nav-text">行間移動</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%B2%E9%9A%8E%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">進階操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B5%84%E5%90%88%E9%8D%B5"><span class="nav-number">3.1.</span> <span class="nav-text">組合鍵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8B%95%E6%AE%B5%E8%90%BD"><span class="nav-number">3.2.</span> <span class="nav-text">移動段落</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B7%A8%E8%BC%AF%E5%85%A7%E5%AE%B9"><span class="nav-number">3.3.</span> <span class="nav-text">編輯內容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E5%85%A7%E5%AE%B9"><span class="nav-number">3.3.1.</span> <span class="nav-text">更改內容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%BF%AB%E7%9A%84%E7%A7%BB%E5%8B%95"><span class="nav-number">3.3.2.</span> <span class="nav-text">更快的移動</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Macros"><span class="nav-number">3.4.</span> <span class="nav-text">Macros</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E5%B0%8B%E8%88%87%E5%8F%96%E4%BB%A3"><span class="nav-number">3.5.</span> <span class="nav-text">搜尋與取代</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%B5%90"><span class="nav-number">4.</span> <span class="nav-text">小結</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">5.</span> <span class="nav-text">References</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Han Tang Lin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Tylerastro" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Tylerastro" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w39398898@gmail.com" title="E-Mail → mailto:w39398898@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://astrocodertyler.medium.com/" title="Medium → https:&#x2F;&#x2F;astrocodertyler.medium.com" rel="noopener" target="_blank"><i class="fab fa-medium fa-fw"></i>Medium</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://tylerastro.github.io/2021/12/24/Vim/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Han Tang Lin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tyler's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vim
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-12-24 12:09:16 / Modified: 12:14:01" itemprop="dateCreated datePublished" datetime="2021-12-24T12:09:16+08:00">2021-12-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/Along-Master/" itemprop="url" rel="index"><span itemprop="name">Along Master</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>3.3k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>在不同電腦上所安裝的Text Editor或者code editor, 亦或是IDE 都不盡相同，如果是要在別人電腦或者是伺服器管理員，如果要多方管理，選擇使用預設安裝的編輯器就會方便許多。Vim是很多系統上原有的文字編輯器，透過<code>vim file_name</code>可以快速編輯內容，然而vim的學習成本並不低，直接有一張cheetsheet也無法直接幫助沒基礎的人，這些原因催促了這篇文章來快速上手。</p>
+<h1 id="What-Why-is-Vim"><a href="#What-Why-is-Vim" class="headerlink" title="What/Why is Vim"></a>What/Why is Vim</h1><p>Vim 是一種文字編輯器，就像是你打開電腦使用的記事本、leafpad、或者是TextEdit，但是Vim強調的是解放雙手，讓雙手可以維持在鍵盤上，保持輸出的狀態。<br>我是對維持在鍵盤上保持保留態度，畢竟在打code時，很多時間是思考跟查資料，這些動作都會離開Vim的環境裡，對我而言他最大的好處是在於有大量的快捷鍵，可以大量處理相同動作，對於格式化一份文件特別有用。</p>
+<p>第二點是可以在終端機裡面快速完成修改，大部分時間會在VSCode工作，但如果是連伺服器等狀況，在只有CLI情況下，總不能每次都修修改改然後上傳覆蓋，這樣效率太低了。尤其是在做輕量修改時，還要打開編輯器，其實花費時間更多。這種情況下在終端機裡面使用Vim就比較合宜。</p>
+<span id="more"></span>
+
+<h1 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h1><blockquote>
+<p>還記得自己第一次使用時，是在完全不懂的情況下，跟著網路上指令開啟檔案，造就了自己不知道如何離開，一直被困在Vim的窘境😂</p>
+</blockquote>
+<h2 id="檔案開啟與關閉"><a href="#檔案開啟與關閉" class="headerlink" title="檔案開啟與關閉"></a>檔案開啟與關閉</h2><p>開啟檔案： <code>vim path_to_file</code> 就會進入到編輯頁面，如果檔案不存在，會主動建立一個相同檔名的檔案。<br>要注意的是當開啟時，使用者是在<strong>指令模式</strong>，此時無論如何打字都不會出現在螢幕上，只有游標會隨著指令移動。</p>
+<p>當時的我就很慌亂，想著要如何離開這個鬼地方，要結束vim環境，需要輸入指令<code>:q</code>離開<br>但如果檔案已經被修改到，又會跳出<code>E37: No write since last change (add ! to override)</code></p>
+<p><img src="/2021/12/24/Vim/vim.png"></p>
+<p><img src="/2021/12/24/Vim/q.png"></p>
+<p>真的慌了我的媽呀，不小心把文件改掉還離不開，後來才發現，原來vim裡面要存檔離開，不存檔離開有好多種指令方式</p>
+<ul>
+<li>離開 <code>:q</code></li>
+<li>不存檔，強制離開： <code>:q!</code></li>
+<li>存檔：<code>:w</code></li>
+<li>強制存檔：<code>:w!</code></li>
+<li>另存新檔：<code>:w new_file_name</code></li>
+<li>存檔離開：<code>:wq</code></li>
+<li>有更改存檔離開，無改變直接離開：<code>ZZ</code></li>
+</ul>
+<h2 id="寫入檔案"><a href="#寫入檔案" class="headerlink" title="寫入檔案"></a>寫入檔案</h2><p>當我們需要寫入資料時，可以輸入<code>i</code>，進入<strong>插入模式</strong>，在插入模式就會比較是平常打開文字編輯器的操作，輸入什麼就會顯示在上面，然後自由換行等操作。<br>然而進入輸入模式方法有很多種，離開則只需要Esc。</p>
+<ul>
+<li>在游標之前進入輸入模式：<code>i</code></li>
+<li>在游標之後進入輸入模式：<code>a</code></li>
+<li>在游標下面新增一行進入輸入模式：<code>o</code></li>
+<li>在游標上面新增一行進入輸入模式：<code>o</code></li>
+<li>刪除當前文字並進入輸入模式：<code>s</code></li>
+<li>刪除當前行並進入輸入模式：<code>S</code></li>
+</ul>
+<blockquote>
+<p>當不同模式切換時，底下都會顯示目前正在處於什麼模式當中。</p>
+</blockquote>
+<h2 id="移動游標"><a href="#移動游標" class="headerlink" title="移動游標"></a>移動游標</h2><p>當然不可能每次都進入插入模式然後才移動游標，或者靠著滑鼠移動之後才進入插入模式，這邊我們得學習如何快速的移動游標，達到解放滑鼠的功能</p>
+<h3 id="段落移動"><a href="#段落移動" class="headerlink" title="段落移動"></a>段落移動</h3><ul>
+<li>上：<code>k</code></li>
+<li>下：<code>j</code></li>
+<li>左：<code>h</code></li>
+<li>右：<code>l</code></li>
+<li>檔案開頭：<code>gg</code></li>
+<li>檔案結尾：<code>G</code></li>
+<li>置中文件：<code>zz</code></li>
+<li>頁面開頭：<code>H</code></li>
+<li>頁面中間：<code>M</code></li>
+<li>頁面結尾：<code>L</code></li>
+<li>往下移動n行：<code>n + Enter</code></li>
+</ul>
+<p><img src="/2021/12/24/Vim/para.gif" alt="段落移動"><span class="image-caption">段落移動</span></p>
+<h3 id="行間移動"><a href="#行間移動" class="headerlink" title="行間移動"></a>行間移動</h3><ul>
+<li>句首：<code>^</code></li>
+<li>句首：<code>0</code></li>
+<li>句尾：<code>$</code></li>
+<li>到特定字母前：<code>t + 字母</code></li>
+<li>到特定字母上：<code>f + 字母</code></li>
+<li>往後移動一個詞：<code>w</code></li>
+<li>往前移動一個詞：<code>b</code></li>
+<li>到括號另一端：<code>%</code></li>
+</ul>
+<p><img src="/2021/12/24/Vim/move_around.gif" alt="句首差別"><span class="image-caption">句首差別</span></p>
+<blockquote>
+<p>在單行裡面移動有很多種方式，像是句首就有兩種分別，要達成<code>^</code>也可以使用<code>0</code>＋<code>w</code>，也會到達第一個字 </p>
+</blockquote>
+<h1 id="進階操作"><a href="#進階操作" class="headerlink" title="進階操作"></a>進階操作</h1><p>在基本操作熟悉後，大致上在vim裡面已經暢行無阻，至少不會卡住動彈不得🤣<br><br>但熟悉上面的操作只能帶給你到與一般編輯器一樣的功能而已，並沒有加強我們的編寫速度，所以進階班要開課囉！</p>
+<h2 id="組合鍵"><a href="#組合鍵" class="headerlink" title="組合鍵"></a>組合鍵</h2><p>還熟悉我們基本指令的話，就會發現我要移動游標一次一行有點慢，或者我要刪除我的code一次只能<code>dd</code>一行，此時組合鍵就能派上用場。<br><br>假設我要往下移動5行，可以輸入<code>5j</code>，要刪除10行，輸入<code>10dd</code>，要增加7行，輸入<code>7o</code>等等。</p>
+<h2 id="移動段落"><a href="#移動段落" class="headerlink" title="移動段落"></a>移動段落</h2><p>熟悉組合鍵之後，我們要在程式碼之間更快速的移動，使用<code>&#123;&#125;</code>可以一次移動一個段落，通常是以一個function來移動，不過這會根據你使用的程式語言而有所不同。</p>
+<h2 id="編輯內容"><a href="#編輯內容" class="headerlink" title="編輯內容"></a>編輯內容</h2><h3 id="更改內容"><a href="#更改內容" class="headerlink" title="更改內容"></a>更改內容</h3><p>在基礎篇，我們只談到如何進入插入模式，如果要改變括號裡的內容，或者一個變數，而這個變數很長時，我們有更快的做法。<br><br>要改變變數，我們可以使用<code>c</code>，加上<code>w</code>或<code>b</code>，改變下一個或上一個詞。</p>
+<p><img src="/2021/12/24/Vim/cw.gif" alt="change word"><span class="image-caption">change word</span></p>
+<p>然而很多時候不是要改變變數，而是要改變method之類，括號中的內容，<code>ci[</code>或者<code>ci&#123;</code>，看你使用的是哪種括號。<br><br>也可以刪除段落，使用<code>d&#123;</code>。<br>使用<code>C</code> 可以更改游標後的所有內容。</p>
+<h3 id="更快的移動"><a href="#更快的移動" class="headerlink" title="更快的移動"></a>更快的移動</h3><p>在使用<code>&#123;&#125;</code>以及<code>t</code>和<code>f</code>後，我們已經可以快速的移動，但如果要找尋第二次出現，可以使用<code>;</code>在<code>t</code>和<code>f</code>之後。</p>
+<h2 id="Macros"><a href="#Macros" class="headerlink" title="Macros"></a>Macros</h2><p>如果要重複同一動作，寫一套巨集來重複使用是很好的方式。<br>要開啟錄製巨集，<code>q</code>+要儲存的按鍵，假設我要儲存在b，我就輸入<code>qb</code>，就會開始錄製接下來的內容，再輸入一次<code>q</code>結束錄製。<br><br>接下來要使用只要輸入@b，就會操作剛剛錄製的內容，假設要使用10次，<code>10@b</code>就會幫你重複10次，這功能在格式化你的內容時非常好用。</p>
+<h2 id="搜尋與取代"><a href="#搜尋與取代" class="headerlink" title="搜尋與取代"></a>搜尋與取代</h2><p>在一般編輯器常常看到有取代，在vim裡面我們必須使用command形式。<br>這些指令並不好記，我會喜歡用macros，自己寫巨集方式來處理。</p>
+<p>這邊可以參考：<a target="_blank" rel="noopener" href="https://vim.fandom.com/wiki/Search_and_replace">Search and Replace</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">:s/foo/bar/g</span><br><span class="line">Find each occurrence of &#x27;foo&#x27; (in the current line only), and replace it with &#x27;bar&#x27;.</span><br><span class="line"></span><br><span class="line">:%s/foo/bar/g</span><br><span class="line">Find each occurrence of &#x27;foo&#x27; (in all lines), and replace it with &#x27;bar&#x27;.</span><br><span class="line"></span><br><span class="line">:%s/foo/bar/gc</span><br><span class="line">Change each &#x27;foo&#x27; to &#x27;bar&#x27;, but ask for confirmation first.</span><br><span class="line"></span><br><span class="line">:%s/\&lt;foo\&gt;/bar/gc</span><br><span class="line">Change only whole words exactly matching &#x27;foo&#x27; to &#x27;bar&#x27;; ask for confirmation.</span><br><span class="line"></span><br><span class="line">:%s/foo/bar/gci</span><br><span class="line">Change each &#x27;foo&#x27; (case insensitive due to the i flag) to &#x27;bar&#x27;; ask for confirmation.</span><br><span class="line">:%s/foo\c/bar/gc is the same because \c makes the search case insensitive.</span><br><span class="line">This may be wanted after using :set noignorecase to make searches case sensitive (the default).</span><br><span class="line"></span><br><span class="line">:%s/foo/bar/gcI</span><br><span class="line">Change each &#x27;foo&#x27; (case sensitive due to the I flag) to &#x27;bar&#x27;; ask for confirmation.</span><br><span class="line"></span><br><span class="line">:%s/foo\C/bar/gc is the same because \C makes the search case sensitive.</span><br><span class="line">This may be wanted after using :set ignorecase to make searches case insensitive.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h1><p>使用Vim在各個平台上可以更快速的編輯，也可以使用巨集達到重複性的功能。學習成本雖然高一些，不過使用下來在某些場合的確派得上用場，而且可以不用滑鼠快速的修改，整個就是帥。😎</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E6%BA%90%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8">Wiki 原始碼編輯器</a><br><a target="_blank" rel="noopener" href="http://linux.vbird.org/linux_basic/0310vi.php">鳥哥的Linux私房菜</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IiwGbcd8S7I&list=WL&index=29&t=2592s">Vim tutorial</a><br><a target="_blank" rel="noopener" href="https://github.com/wellle/targets.vim">wellle/targets.vim</a><br><a target="_blank" rel="noopener" href="https://vim.fandom.com/wiki/Search_and_replace">Search and Replace</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Text-Editor/" rel="tag"># Text Editor</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/11/06/MacTerminal/" rel="prev" title="MacOS Terminal">
+                  <i class="fa fa-chevron-left"></i> MacOS Terminal
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Han Tang Lin</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">21k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">19 mins.</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
