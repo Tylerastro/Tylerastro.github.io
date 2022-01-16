@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tylerastro.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="這是一系列關於我拿到天文碩士學位，我一路所學到的技能，以及我認為必須延伸的技能組的文章，技能主線會保留在Medium上，以中英文方式呈現，而技能支線，會以中文形式在GitHub.io，也就是這裡發表。預計兩邊加起來會有27篇文章，透過這些文章來檢核天文學位帶來給我哪些影響。  前言這篇文章假設你已經安裝好Python，並且能夠Compile your code，如果還不清楚，建議先閱讀Start">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Built-in Functions">
+<meta property="og:url" content="https://tylerastro.github.io/2022/01/16/Built-inFunctions/index.html">
+<meta property="og:site_name" content="Tyler&#39;s Blog">
+<meta property="og:description" content="這是一系列關於我拿到天文碩士學位，我一路所學到的技能，以及我認為必須延伸的技能組的文章，技能主線會保留在Medium上，以中英文方式呈現，而技能支線，會以中文形式在GitHub.io，也就是這裡發表。預計兩邊加起來會有27篇文章，透過這些文章來檢核天文學位帶來給我哪些影響。  前言這篇文章假設你已經安裝好Python，並且能夠Compile your code，如果還不清楚，建議先閱讀Start">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-16T06:21:36.000Z">
+<meta property="article:modified_time" content="2022-01-16T06:29:55.115Z">
+<meta property="article:author" content="Han Tang Lin">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://tylerastro.github.io/2022/01/16/Built-inFunctions/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://tylerastro.github.io/2022/01/16/Built-inFunctions/","path":"2022/01/16/Built-inFunctions/","title":"Built-in Functions"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Built-in Functions | Tyler's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Tyler's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Built-in-Functions"><span class="nav-number">2.</span> <span class="nav-text">Built-in Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A"><span class="nav-number">2.1.</span> <span class="nav-text">A*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#abs"><span class="nav-number">2.1.1.</span> <span class="nav-text">abs()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#all"><span class="nav-number">2.1.2.</span> <span class="nav-text">all()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#any"><span class="nav-number">2.1.3.</span> <span class="nav-text">any()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B"><span class="nav-number">2.2.</span> <span class="nav-text">B*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bool"><span class="nav-number">2.2.1.</span> <span class="nav-text">bool()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#breakpoint"><span class="nav-number">2.2.2.</span> <span class="nav-text">breakpoint()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D"><span class="nav-number">2.3.</span> <span class="nav-text">D*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#delattr"><span class="nav-number">2.3.1.</span> <span class="nav-text">delattr()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dict"><span class="nav-number">2.3.2.</span> <span class="nav-text">dict()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dir"><span class="nav-number">2.3.3.</span> <span class="nav-text">dir()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#divmod"><span class="nav-number">2.3.4.</span> <span class="nav-text">divmod()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F"><span class="nav-number">2.4.</span> <span class="nav-text">F*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#filter"><span class="nav-number">2.4.1.</span> <span class="nav-text">filter()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I"><span class="nav-number">2.5.</span> <span class="nav-text">I*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input"><span class="nav-number">2.5.1.</span> <span class="nav-text">input()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#int"><span class="nav-number">2.5.2.</span> <span class="nav-text">int()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#len"><span class="nav-number">2.5.3.</span> <span class="nav-text">len()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list"><span class="nav-number">2.5.4.</span> <span class="nav-text">list()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">2.5.5.</span> <span class="nav-text">map()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#max"><span class="nav-number">2.5.6.</span> <span class="nav-text">max()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#min"><span class="nav-number">2.5.7.</span> <span class="nav-text">min()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#N"><span class="nav-number">2.6.</span> <span class="nav-text">N*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#next"><span class="nav-number">2.6.1.</span> <span class="nav-text">next()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#O"><span class="nav-number">2.7.</span> <span class="nav-text">O*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#open"><span class="nav-number">2.7.1.</span> <span class="nav-text">open()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P"><span class="nav-number">2.8.</span> <span class="nav-text">P*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#print"><span class="nav-number">2.8.1.</span> <span class="nav-text">print()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R"><span class="nav-number">2.9.</span> <span class="nav-text">R*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#range"><span class="nav-number">2.9.1.</span> <span class="nav-text">range()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#round"><span class="nav-number">2.9.2.</span> <span class="nav-text">round()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#S"><span class="nav-number">2.10.</span> <span class="nav-text">S*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">2.10.1.</span> <span class="nav-text">set()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sorted"><span class="nav-number">2.10.2.</span> <span class="nav-text">sorted()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#str"><span class="nav-number">2.10.3.</span> <span class="nav-text">str()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sum"><span class="nav-number">2.10.4.</span> <span class="nav-text">sum()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#super"><span class="nav-number">2.10.5.</span> <span class="nav-text">super()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T"><span class="nav-number">2.11.</span> <span class="nav-text">T*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tuple"><span class="nav-number">2.11.1.</span> <span class="nav-text">tuple()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#type"><span class="nav-number">2.11.2.</span> <span class="nav-text">type()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Z"><span class="nav-number">2.12.</span> <span class="nav-text">Z*</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zip"><span class="nav-number">2.12.1.</span> <span class="nav-text">zip()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">3.</span> <span class="nav-text">References</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Han Tang Lin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Tylerastro" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Tylerastro" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w39398898@gmail.com" title="E-Mail → mailto:w39398898@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://astrocodertyler.medium.com/" title="Medium → https:&#x2F;&#x2F;astrocodertyler.medium.com" rel="noopener" target="_blank"><i class="fab fa-medium fa-fw"></i>Medium</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://tylerastro.github.io/2022/01/16/Built-inFunctions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Han Tang Lin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tyler's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Built-in Functions
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-01-16 14:21:36 / Modified: 14:29:55" itemprop="dateCreated datePublished" datetime="2022-01-16T14:21:36+08:00">2022-01-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/27-Master-Journey/" itemprop="url" rel="index"><span itemprop="name">27 Master Journey</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>11k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>10 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>這是一系列關於我拿到天文碩士學位，我一路所學到的技能，以及我認為必須延伸的技能組的文章，技能主線會保留在Medium上，以中英文方式呈現，而技能支線，會以中文形式在GitHub.io，也就是這裡發表。<br>預計兩邊加起來會有27篇文章，透過這些文章來檢核天文學位帶來給我哪些影響。</p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這篇文章假設你已經安裝好Python，並且能夠Compile your code，如果還不清楚，建議先閱讀<a target="_blank" rel="noopener" href="https://astrocodertyler.medium.com/starting-python-765dab160d1">Starting Python</a>。</p>
+<h1 id="Built-in-Functions"><a href="#Built-in-Functions" class="headerlink" title="Built-in Functions"></a>Built-in Functions</h1><p>如標題所寫，今天會先了解到Python本身內建的函數，使用這些函數可以更快的編譯，減少呼叫外在套件達成一樣目的的時間。</p>
+<h2 id="A"><a href="#A" class="headerlink" title="A*"></a>A*</h2><h3 id="abs"><a href="#abs" class="headerlink" title="abs()"></a>abs()</h3><p>Short for absolute. 絕對值<br><br>回傳數值的絕對值，如果輸入為複數，則回傳magnitude.</p>
+<figure class="highlight python"><figcaption><span>abs()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">abs</span>(-<span class="number">2</span>)</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">abs</span>(<span class="number">0.3</span>)</span><br><span class="line"><span class="number">0.3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">abs</span>(-<span class="number">12</span>)</span><br><span class="line"><span class="number">12</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">abs</span>(-<span class="number">12.0</span>)</span><br><span class="line"><span class="number">12.0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">abs</span>(-<span class="number">12.000</span>)</span><br><span class="line"><span class="number">12.0</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<span id="more"></span>
+
+<h3 id="all"><a href="#all" class="headerlink" title="all()"></a>all()</h3><p>From documentation:<br>Return True if all elements of the iterable are true (or if the iterable is empty)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def all(iterable):</span><br><span class="line">    for element in iterable:</span><br><span class="line">        if not element:</span><br><span class="line">            return False</span><br><span class="line">    return True</span><br></pre></td></tr></table></figure>
+
+<p>從官方解釋其實很好理解了，只要你的list裡面或是可迭代的物件裡面，<strong>全部</strong>不為空值，則回傳True。<br>我們可以藉由一些例子來更好理解，也可以判別None,np.nan這些物件會被判別成怎樣</p>
+<figure class="highlight python"><figcaption><span>all()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">all</span>([]))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">all</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">all</span>([<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">all</span>([np.nan]))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">all</span>([<span class="literal">None</span>]))</span><br><span class="line"></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">False</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="any"><a href="#any" class="headerlink" title="any()"></a>any()</h3><p>any是跟all 相反的一種模式，只要迭代物件裡面任一是有值，就會回傳True</p>
+<p>From documentation:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def any(iterable):</span><br><span class="line">    for element in iterable:</span><br><span class="line">        if element:</span><br><span class="line">            return True</span><br><span class="line">    return False</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>any()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">all</span>([]))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">all</span>([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">all</span>([<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">all</span>([np.nan]))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">all</span>([<span class="literal">None</span>]))</span><br><span class="line"></span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="B"><a href="#B" class="headerlink" title="B*"></a>B*</h2><h3 id="bool"><a href="#bool" class="headerlink" title="bool()"></a>bool()</h3><p>回傳boolean ,布林值， True or False，與any(),all()類似。</p>
+<figure class="highlight python"><figcaption><span>bool()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bool</span>(<span class="number">0</span>))</span><br><span class="line"></span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="literal">False</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="breakpoint"><a href="#breakpoint" class="headerlink" title="breakpoint()"></a>breakpoint()</h3><p>在Python3.7 之後，新增了breakpoint的功能，過往在debug，通常都是透過print來了解變數值，或者了解函數進行到哪個階段，或是透過IDE有的debug功能，去設定breakpoint的點，這些功能現在可以透過給breakpoint()來達成。<br>如果是對於使用debug不熟悉的人，建議可以觀看<a target="_blank" rel="noopener" href="https://youtu.be/tI_tIZFyKBw?t=2000">CS50 Lecture2</a>，關於debugger的用法與操作。</p>
+<p>breakpoint()可以想像是一個暫停點，程式會在breakpoint處停下來，你可以檢視目前的變數值等等。<br>舉個例子，這以下的迴圈當中，i的值也許很好判斷，那j的值已經跑到哪裡了，也許是我們有興趣的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for i  in range(10):</span><br><span class="line">    i = 0</span><br><span class="line">    for j in range(10):</span><br><span class="line">        j += i</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><figcaption><span>breakpoint()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> i  <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">	<span class="built_in">breakpoint</span>()</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        j += i</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## first breakpoint  --&gt; 進入到第一次breakpoint</span></span><br><span class="line">(Pdb) <span class="built_in">print</span>(i)</span><br><span class="line"><span class="number">0</span></span><br><span class="line">(Pdb) <span class="built_in">print</span>(j)</span><br><span class="line">*** NameError: name <span class="string">&#x27;j&#x27;</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</span><br><span class="line">(Pdb)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## second breakpoint  --&gt; 進入到第二次breakpoint</span></span><br><span class="line">(Pdb) <span class="built_in">print</span>(i)</span><br><span class="line"><span class="number">0</span></span><br><span class="line">(Pdb) <span class="built_in">print</span>(j)</span><br><span class="line"><span class="number">9</span></span><br><span class="line">(Pdb)</span><br><span class="line"></span><br><span class="line"><span class="comment">## third breakpoint  --&gt; 進入到第三次breakpoint</span></span><br><span class="line">(Pdb) <span class="built_in">print</span>(j)</span><br><span class="line"><span class="number">9</span></span><br><span class="line">(Pdb) </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>如果有經驗，可能一眼就看出這個迴圈有問題，然而一開始沒經驗，可能會想說j怎麼沒有一直加上去，然後最後output出來就完全抓不到bug在哪裡。此時設立breakpoint，就可以知道每跑一次迴圈，數值的變化如何，那問題點會在第一個或是第二個回圈裡面。</p>
+<p>從code裡面，我們看到了(Pdb)，也就是當遇到breakpoint()時，Python會叫出了指令，在這個環境下，可以對於參數進行檢核，像我們使用print()的方式，那麼要進到下一個breakpoint()，或者其他操作，有相對應的指令：</p>
+<ul>
+<li>看變數值：<code>p [var]</code></li>
+<li>看目前位置：<code>l</code></li>
+<li>繼續到下一個breakpoint()：<code>c</code></li>
+<li>離開：<code>q</code></li>
+</ul>
+<p>當中還有其他指令，不過這些就足以應付大部分debug的需求了。</p>
+<h2 id="D"><a href="#D" class="headerlink" title="D*"></a>D*</h2><h3 id="delattr"><a href="#delattr" class="headerlink" title="delattr()"></a>delattr()</h3><p>在講到Class之前，我們先講到如何刪除屬性。由於Python語法是基於物件導向，任何東西都是視為一個物件在處理，類別(Class)也不例外，所以類別就會有屬性(attribute)。<br>舉個例子，<br>一個立方體的類別我們叫做cube,那立方體有的就是三邊的邊長，我們各自叫x,y,z，我們呼叫一個a為一個立方體，那他有三個屬性就分別是x,y,z，我們可以透過a.x, a.y, a.z來檢視a的屬性。當要刪除x的屬性時，可以使用delattr()。</p>
+<figure class="highlight python"><figcaption><span>delattr()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">cube</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,x,y,z</span>) -&gt; <span class="literal">None</span>:</span></span><br><span class="line">        self.x = x </span><br><span class="line">        self.y = y </span><br><span class="line">        self.z = z</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">volume</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.x * self.y * self.z</span><br><span class="line"></span><br><span class="line">a = cube(x = <span class="number">2</span>, y = <span class="number">3</span>, z = <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(a.x, a.y, a.z)</span><br><span class="line"><span class="built_in">print</span>(a.volume())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 當我們添加刪除屬性之後</span></span><br><span class="line">a = cube(x = <span class="number">2</span>, y = <span class="number">3</span>, z = <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(a.x, a.y, a.z)</span><br><span class="line"><span class="built_in">delattr</span>(a,<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(a.x, a.y, a.z)</span><br><span class="line"><span class="built_in">print</span>(a.volume())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Python 會告訴我們立方體a並沒有x的屬性</span></span><br><span class="line"><span class="built_in">print</span>(a.x, a.y, a.z)</span><br><span class="line">AttributeError: <span class="string">&#x27;cube&#x27;</span> <span class="built_in">object</span> has no attribute <span class="string">&#x27;x&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>delattr(a,&#39;x&#39;)</code> 也等同於 <code>del a.x</code></p>
+</blockquote>
+<h3 id="dict"><a href="#dict" class="headerlink" title="dict()"></a>dict()</h3><p>dict 為字典類別，用法類似於list(), set()，會創造出一個字典物件。<br>根據官方文件指出，底下6種方式皆可以創造出<code>&#123;&quot;one&quot;: 1, &quot;two&quot;: 2, &quot;three&quot;: 3&#125;</code>。</p>
+<figure class="highlight python"><figcaption><span>dict()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">dict</span>(one=<span class="number">1</span>, two=<span class="number">2</span>, three=<span class="number">3</span>)</span><br><span class="line">b = &#123;<span class="string">&#x27;one&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;two&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;three&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line">c = <span class="built_in">dict</span>(<span class="built_in">zip</span>([<span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>, <span class="string">&#x27;three&#x27;</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))</span><br><span class="line">d = <span class="built_in">dict</span>([(<span class="string">&#x27;two&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;one&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;three&#x27;</span>, <span class="number">3</span>)])</span><br><span class="line">e = <span class="built_in">dict</span>(&#123;<span class="string">&#x27;three&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;one&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;two&#x27;</span>: <span class="number">2</span>&#125;)</span><br><span class="line">f = <span class="built_in">dict</span>(&#123;<span class="string">&#x27;one&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;three&#x27;</span>: <span class="number">3</span>&#125;, two=<span class="number">2</span>) </span><br></pre></td></tr></table></figure>
+
+<p>從其中幾種方式不難看出，在創建字典物件時，內建的<code>dict()</code>並不是必須，單純的使用<code>&#123;&#125;</code> 就可以創立字典物件。但在多個list物件時，或是要用zip將list合併成字典時，<code>dict()</code>會是更好用的選擇。</p>
+<h3 id="dir"><a href="#dir" class="headerlink" title="dir()"></a>dir()</h3><p><code>dir()</code>提供<strong>the list of names in the current local scope</strong>。<br>這句話有點難翻譯，白話文的意思是回傳當下本地的變數範圍。</p>
+<p>簡單的不同範例應該可以更好理解，在沒有給參數的python檔案裡面，我們直接print(dir())，會得到一串變數名稱，如果針對個別變數去看他的值，不能看出這是在跑檔案時他本身的資訊。</p>
+<blockquote>
+<p>這邊特別去print __name__這個變數，這個變數會在很多Python裡面看到，以<code>if __name__ == __main__</code>的形式。</p>
+</blockquote>
+<figure class="highlight python"><figcaption><span>dir()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">dir</span>())</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="string">&#x27;__annotations__&#x27;</span>, <span class="string">&#x27;__builtins__&#x27;</span>, <span class="string">&#x27;__doc__&#x27;</span>, <span class="string">&#x27;__loader__&#x27;</span>, <span class="string">&#x27;__name__&#x27;</span>, <span class="string">&#x27;__package__&#x27;</span>, <span class="string">&#x27;__spec__&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>__main__</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="divmod"><a href="#divmod" class="headerlink" title="divmod()"></a>divmod()</h3><p>處理division除法的函式，可搭配下方語法糖做合併閱讀。<br>divmod()會回傳quotient, remainder，而語法糖都只回傳數值。</p>
+<figure class="highlight python"><figcaption><span>dir()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">divmod</span>(<span class="number">1</span>,<span class="number">2</span>))            ---&gt; (<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">divmod</span>(<span class="number">4</span>,<span class="number">2</span>))				---&gt; (<span class="number">2</span>, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">divmod</span>(<span class="number">4</span>,<span class="number">3</span>))				---&gt; (<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">divmod</span>(<span class="number">12.5</span>,<span class="number">2</span>))			---&gt; (<span class="number">6.0</span>, <span class="number">0.5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">divmod</span>(<span class="number">12.5</span>,<span class="number">1.5</span>))			---&gt; (<span class="number">8.0</span>, <span class="number">0.5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">divmod</span>(<span class="number">125.543</span>,<span class="number">10.2</span>))   ---&gt; (<span class="number">12.0</span>, <span class="number">3.143000000000015</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><figcaption><span>Sugansyntax</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="number">5</span>/<span class="number">2</span>)				--&gt; <span class="number">2.5</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">5</span>//<span class="number">2</span>)				--&gt; <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">5</span>%<span class="number">2</span>)				--&gt; <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(math.floor(<span class="number">5</span>/<span class="number">2</span>)) --&gt; <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(-<span class="number">2</span>/<span class="number">3</span>)				--&gt; -<span class="number">0.6666666666666666</span></span><br><span class="line"><span class="built_in">print</span>(-<span class="number">2</span>//<span class="number">3</span>)				--&gt; -<span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(-<span class="number">2</span>%<span class="number">3</span>)				--&gt; <span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="F"><a href="#F" class="headerlink" title="F*"></a>F*</h2><h3 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h3><p>filter()顧名思義會做濾除的動作，依照判斷式來回傳一個iterator。</p>
+<figure class="highlight python"><figcaption><span>filter()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">filted = <span class="built_in">filter</span>(<span class="keyword">lambda</span> x: x&lt;<span class="number">5</span> ,a)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> filted:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="I"><a href="#I" class="headerlink" title="I*"></a>I*</h2><h3 id="input"><a href="#input" class="headerlink" title="input()"></a>input()</h3><p>當我們需要使用者輸入參數時，input可以擷取使用者在Terminal裡輸入的內容。<br>這是非常常使用的函數，畢竟我們不想要隨時hard coding我們的程式，每次都要進入程式碼修改參數。</p>
+<figure class="highlight python"><figcaption><span>input()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">name = <span class="built_in">input</span>(<span class="string">&quot;What&#x27;s you name? &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Hello <span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="int"><a href="#int" class="headerlink" title="int()"></a>int()</h3><p>將字串或浮點數轉換成整數。<br>這將會在處理檔案數字(通常是字串)或者取整數位時常用。</p>
+<h3 id="len"><a href="#len" class="headerlink" title="len()"></a>len()</h3><p>Len為length縮寫，回傳物件的長度。<br>物件可以是一個list, tuple, string 或是dictionary.</p>
+<figure class="highlight python"><figcaption><span>len()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">dictionary = &#123;<span class="string">&quot;a&quot;</span>: <span class="string">&quot;Anal&quot;</span>,<span class="string">&quot;b&quot;</span>:<span class="string">&quot;Breast&quot;</span>,<span class="string">&quot;c&quot;</span>:<span class="string">&quot;Cunt&quot;</span>,<span class="string">&quot;d&quot;</span>:<span class="string">&quot;Dick&quot;</span>&#125;</span><br><span class="line">country = [<span class="string">&#x27;Chicago&#x27;</span>,<span class="string">&#x27;Edinburgh&#x27;</span>,<span class="string">&#x27;Yourkshire&#x27;</span>]</span><br><span class="line">ages = (<span class="number">12</span>,<span class="number">14</span>,<span class="number">20</span>)</span><br><span class="line">name = <span class="string">&quot;Tyler&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">length of dictionary: <span class="subst">&#123;<span class="built_in">len</span>(dictionary)&#125;</span></span></span><br><span class="line"><span class="string">length of country: <span class="subst">&#123;<span class="built_in">len</span>(country)&#125;</span></span></span><br><span class="line"><span class="string">length of ages: <span class="subst">&#123;<span class="built_in">len</span>(ages)&#125;</span></span></span><br><span class="line"><span class="string">length of name: <span class="subst">&#123;<span class="built_in">len</span>(name)&#125;</span></span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="list"><a href="#list" class="headerlink" title="list()"></a>list()</h3><p>List的功用很廣，這邊舉幾個例子，主要是可以把一些可迭代物件轉換成list的形式。</p>
+<p>以上一個例子來說</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">dictionary = &#123;&quot;a&quot;: &quot;Anal&quot;,&quot;b&quot;:&quot;Breast&quot;,&quot;c&quot;:&quot;Cunt&quot;,&quot;d&quot;:&quot;Dick&quot;&#125;</span><br><span class="line">country = [&#x27;Chicago&#x27;,&#x27;Edinburgh&#x27;,&#x27;Yorkshire&#x27;]</span><br><span class="line">ages = (12,14,20)</span><br><span class="line">name = &quot;Tyler&quot;</span><br><span class="line"></span><br><span class="line">print(f&quot;&quot;&quot;</span><br><span class="line">list of dictionary: &#123;list(dictionary)&#125;</span><br><span class="line">list of country: &#123;list(country)&#125;</span><br><span class="line">list of ages: &#123;list(ages)&#125;</span><br><span class="line">list of name: &#123;list(name)&#125;</span><br><span class="line">list of range: &#123;list(range(1,10,2))&#125;</span><br><span class="line">&quot;&quot;&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">list of dictionary: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;, &#x27;d&#x27;]</span><br><span class="line">list of country: [&#x27;Chicago&#x27;, &#x27;Edinburgh&#x27;, &#x27;Yorkshire&#x27;]</span><br><span class="line">list of ages: [12, 14, 20]</span><br><span class="line">list of name: [&#x27;T&#x27;, &#x27;y&#x27;, &#x27;l&#x27;, &#x27;e&#x27;, &#x27;r&#x27;]</span><br><span class="line">list of range: [1, 3, 5, 7, 9]</span><br></pre></td></tr></table></figure>
+
+<h3 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h3><blockquote>
+<p>Return an iterator that applies function to every item of iterable, yielding the results.<br>Map就我經驗來說，他是非常好用，但不常用，屬於比較進階，當有些經驗之後，漸漸的map會是手上很好用的工具之一。</p>
+</blockquote>
+<p>以一個例子來說，對於一個list如果需要取整數，勢必要用int取整數值，此時我們可以藉由map將大量數值一併作轉換。<br>但要注意的是map回傳的並不是list而是迭代器，所以再用list轉換。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(list(map(int,[1.23,2.24,3.96,4.4,5.95387])))</span><br><span class="line">&gt;&gt;&gt; [1, 2, 3, 4, 5]</span><br></pre></td></tr></table></figure>
+
+<h3 id="max"><a href="#max" class="headerlink" title="max()"></a>max()</h3><p>Maximum 顧名思義取最大值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">max([1,2,3,4,5])</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; 5</span><br></pre></td></tr></table></figure>
+
+<h3 id="min"><a href="#min" class="headerlink" title="min()"></a>min()</h3><p>Minimum 顧名思義取最小值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">min([1,2,3,4,5])</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; 1</span><br></pre></td></tr></table></figure>
+<h2 id="N"><a href="#N" class="headerlink" title="N*"></a>N*</h2><h3 id="next"><a href="#next" class="headerlink" title="next()"></a>next()</h3><p>當我們處理到迭代器(iterator)時，next可以迭代到下一個值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">a = iter([1,2,3,4,5])</span><br><span class="line">print(a)</span><br><span class="line"></span><br><span class="line">print(next(a))</span><br><span class="line">print(next(a))</span><br><span class="line">print(next(a))</span><br><span class="line">print(next(a))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">&lt;list_iterator object at 0x7fae2da6a940&gt;</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<h2 id="O"><a href="#O" class="headerlink" title="O*"></a>O*</h2><h3 id="open"><a href="#open" class="headerlink" title="open()"></a>open()</h3><p>Open 是常常使用來打開檔案的方式，在參數裡面可以選擇打開文件的mode，簡單來說檔案打開並不是直覺的打開而擁有改寫刪的權限，相對的你必須選擇要以哪種方式打開，常用的方式是<code>r</code>,<code>w</code>,<code>a</code>，分別為讀寫以及增加(read, write, append)</p>
+<p>通常在打開檔案時，我們會希望資源管理做好，畢竟如果檔案起來，資料讀完，我們想要把檔案關閉把資源拿到該用的地方，所以open常搭配的事with的用法，這樣就不必多寫一行把檔案關閉，也可以避免忘記。</p>
+<p>[rwa.png](Someone made this online. Please PM for credit.)</p>
+<p>藉由下面的範例我們可以更清楚知道使用方法，在一份sample文件裡面:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">This is the first line.</span><br><span class="line">Second line is about nothing.</span><br><span class="line">Third line is the end.</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>此時只有使用’r’，所以只能夠讀，並不能寫，如果寫檔案時會出現<code>io.UnsupportedOperation: not writable</code></p>
+</blockquote>
+<p>可以在範例裡面看到，讀取檔案有很多種方式，而開啟檔案的f會是一個迭代器，如果要將檔案內容取出當變數，則是要另外給<code>var = f.readlines()</code>, 那麼變數就會是 <code>var = [&#39;This is the first line.\n&#39;, &#39;Second line is about nothing.\n&#39;, &#39;Third line is the end.\n&#39;]</code></p>
+<figure class="highlight python"><figcaption><span>open(r)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;sample.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="comment"># print(f.readline())</span></span><br><span class="line">    <span class="comment"># print(f.readlines())</span></span><br><span class="line">    <span class="comment"># print(f.read())</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># for line in f:</span></span><br><span class="line">    <span class="comment">#     print(line)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># print(f)</span></span><br><span class="line">    <span class="comment"># print(next(f))</span></span><br><span class="line">    <span class="comment"># print(next(f))</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>當然我們有時候要寫入檔案，此時就要注意選擇的模式會將你的游標放在哪裡，如果是w，游標會在開頭，也就是會將原本內容覆寫過去，如果是a，游標則會在最末端，以添加方式寫進檔案。</p>
+<blockquote>
+<p>要注意的是要換行必須手動給換行符<code>&#39;\n&#39;</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">with open(&#x27;sample.txt&#x27;,&#x27;r&#x27;) as f:</span><br><span class="line">	for line in context:</span><br><span class="line">		f.write(line)</span><br><span class="line">		f.write(&#x27;\n&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="P"><a href="#P" class="headerlink" title="P*"></a>P*</h2><h3 id="print"><a href="#print" class="headerlink" title="print()"></a>print()</h3><p>Print或者任何印出文字的方式，在任何程式語言裡面是Debug相當重要的一環，藉由print出當下的變數值，我們可以更清楚了解目前程式運作到哪一段落，或者變數哪裡出現問題，很多IDE目前有提供Debugger的操作，也是可以藉由暫停程式，查看當下變數值。</p>
+<h2 id="R"><a href="#R" class="headerlink" title="R*"></a>R*</h2><h3 id="range"><a href="#range" class="headerlink" title="range()"></a>range()</h3><p>Range是一個不變的數列，很常使用在於for loop當中，比如說我要印出1~10，我可以輕易的使用:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for i in range(1,11,1):</span><br><span class="line">	print(i)</span><br></pre></td></tr></table></figure>
+
+<p>要注意的是range(start, stop, step)，stop的值是不會印出來的，所以要多加1上去。<br>如果想要整個數列，也可以使用<code>list(range(5))</code>來回傳一個<code>[0,1,2,3,4]</code></p>
+<h3 id="round"><a href="#round" class="headerlink" title="round()"></a>round()</h3><p>round的意思是取整數，所以是進位的意思，在第二個參數可以給要到第幾位。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">print(round(2.4))			--&gt; 2</span><br><span class="line">print(round(2.7))			--&gt; 3</span><br><span class="line">print(round(1.23245,2))	--&gt; 1.23</span><br><span class="line">print(round(1.23245,4))	--&gt; 1.2325</span><br><span class="line">print(round(0.4))			--&gt; 0</span><br><span class="line">print(round(-2.3))		--&gt; -2</span><br><span class="line">print(round(-2.7))		--&gt; -3</span><br><span class="line">print(round(-2.43583,2))	--&gt; -2.44</span><br><span class="line">print(round(-2.43583,4))	--&gt; -2.4358</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="S"><a href="#S" class="headerlink" title="S*"></a>S*</h2><h3 id="set"><a href="#set" class="headerlink" title="set()"></a>set()</h3><p>set是數一數二常用的函式之一，他會把一個可迭代的物件(list,tuple)，回傳一個set，而set裡面不會有重複的值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = [1,1,1,2,3,4,5,6,6,4,6,7]</span><br><span class="line"></span><br><span class="line">print(set(a))			--&gt; &#123;1, 2, 3, 4, 5, 6, 7&#125;</span><br><span class="line">print(list(set(a)))	--&gt; [1, 2, 3, 4, 5, 6, 7]</span><br></pre></td></tr></table></figure>
+
+<h3 id="sorted"><a href="#sorted" class="headerlink" title="sorted()"></a>sorted()</h3><p>排序迭代物件。</p>
+<figure class="highlight python"><figcaption><span>sorted()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sorted</span>(a))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">sorted</span>(a,reverse=<span class="literal">True</span>))</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line">&gt;&gt;&gt;[<span class="number">7</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="str"><a href="#str" class="headerlink" title="str()"></a>str()</h3><p>string()回傳字串版本的物件，這情況會使用在分析數字時，有時候以字串形式判斷或者要將字串與數字做合併。<br>不過自從使用<a href="https://tylerastro.github.io/2021/08/28/Strings/#more">f-string</a>之後，這方法就比較少用了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(&#x27;I am &#x27;+ str(24) + &#x27; years old&#x27;)</span><br><span class="line">&gt;&gt;&gt; I am 24 years old</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="sum"><a href="#sum" class="headerlink" title="sum()"></a>sum()</h3><p>回傳迭代物件的總和。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = [1,1,1,2,3,4,5,6,6,4,6,7]</span><br><span class="line">sum(a)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; 46</span><br></pre></td></tr></table></figure>
+
+<h3 id="super"><a href="#super" class="headerlink" title="super()"></a>super()</h3><p>super是一個比較難的概念，多半不會用到，但如果你是進階的使用者，那這項概念就必須了解。</p>
+<p>先淺談class的想法，Python語言是物件導向，所以可以想像類別(class)顧名思義是一個族群，那這個族群也會有細分成小族群。</p>
+<p>以MLB為例子，MLB是Major League Baseball，美國職棒大聯盟，又可分成國家聯盟與美國聯盟，那麼底下有很多球隊，球隊底下又有不同細部員工。<br>所以我們可以說MLB是一個類別，底下單一隊伍也是一個類別，但是他們有一些類似的性質存在，比如說都打棒球？(這什麼廢話😂)<br>當你認為某些功能或行為是subclass也需要時，使用super來繼承</p>
+<p>底下這個例子可以看看利用super承接Parent class的功能以及屬性。</p>
+<figure class="highlight python"><figcaption><span>super()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MLB</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.level = <span class="string">&#x27;MLB&#x27;</span></span><br><span class="line">        self.age = <span class="number">119</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">TeamNumber</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;29 Teams in US&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;1 Team in Canada&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AL</span>(<span class="params">MLB</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.level = <span class="string">&#x27;AL&#x27;</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">TeamNumber</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().TeamNumber()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;15 Temas in AL&#x27;</span>)</span><br><span class="line"></span><br><span class="line">al = AL()</span><br><span class="line"><span class="built_in">print</span>(al.level)</span><br><span class="line">al.TeamNumber()</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="T"><a href="#T" class="headerlink" title="T*"></a>T*</h2><h3 id="tuple"><a href="#tuple" class="headerlink" title="tuple()"></a>tuple()</h3><p>tuple與list,str功用類似，會回傳物件的tuple性質，tuple可以想像成是list的鎖定版本，裡面的值沒辦法做更動，如果要直接寫list可以用<code>[]</code>而要直接寫tuple可以使用<code>()</code>即是tuple物件。</p>
+<h3 id="type"><a href="#type" class="headerlink" title="type()"></a>type()</h3><p>type會回傳物件的類別，有時候不確定物件類別，這是好用的方法。</p>
+<h2 id="Z"><a href="#Z" class="headerlink" title="Z*"></a>Z*</h2><h3 id="zip"><a href="#zip" class="headerlink" title="zip()"></a>zip()</h3><p>zip也是前三常用好用的函式之一，可以將兩個迭代物件做平行合併。這樣講也許有點抽象，不過我們先看一個例子來了解一下，晚些就知道他的強大。</p>
+<figure class="highlight python"><figcaption><span>zip()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">score = [<span class="number">89</span>,<span class="number">76</span>,<span class="number">83</span>]</span><br><span class="line">name = [<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Fecco&#x27;</span>, <span class="string">&#x27;Ryan&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">zip</span>(score,name):</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;(<span class="number">89</span>, <span class="string">&#x27;John&#x27;</span>)</span><br><span class="line">(<span class="number">76</span>, <span class="string">&#x27;Fecco&#x27;</span>)</span><br><span class="line">(<span class="number">83</span>, <span class="string">&#x27;Ryan&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p><a target="_blank" rel="noopener" href="https://docs.python.org/3/library/functions.html#aiter">Python 3.10.1 Documentation</a><br><br><a target="_blank" rel="noopener" href="https://www.icoding.co/2020/07/print-debug-python-debugger">別再用 print 來 Debug 啦！來用 Python Debugger 吧！</a><br><br><a target="_blank" rel="noopener" href="https://dboyliao.medium.com/python-%E7%B9%BC%E6%89%BF-543-bc3d8ef51d6d">Python 繼承 543</a><br></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/24/Vim/" rel="prev" title="Vim">
+                  <i class="fa fa-chevron-left"></i> Vim
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Han Tang Lin</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">31k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">28 mins.</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -180,6 +180,112 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://tylerastro.github.io/2022/01/16/Built-inFunctions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Han Tang Lin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tyler's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/01/16/Built-inFunctions/" class="post-title-link" itemprop="url">Built-in Functions</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-01-16 14:21:36 / Modified: 14:29:55" itemprop="dateCreated datePublished" datetime="2022-01-16T14:21:36+08:00">2022-01-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/27-Master-Journey/" itemprop="url" rel="index"><span itemprop="name">27 Master Journey</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>11k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>10 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>這是一系列關於我拿到天文碩士學位，我一路所學到的技能，以及我認為必須延伸的技能組的文章，技能主線會保留在Medium上，以中英文方式呈現，而技能支線，會以中文形式在GitHub.io，也就是這裡發表。<br>預計兩邊加起來會有27篇文章，透過這些文章來檢核天文學位帶來給我哪些影響。</p>
+</blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這篇文章假設你已經安裝好Python，並且能夠Compile your code，如果還不清楚，建議先閱讀<a target="_blank" rel="noopener" href="https://astrocodertyler.medium.com/starting-python-765dab160d1">Starting Python</a>。</p>
+<h1 id="Built-in-Functions"><a href="#Built-in-Functions" class="headerlink" title="Built-in Functions"></a>Built-in Functions</h1><p>如標題所寫，今天會先了解到Python本身內建的函數，使用這些函數可以更快的編譯，減少呼叫外在套件達成一樣目的的時間。</p>
+<h2 id="A"><a href="#A" class="headerlink" title="A*"></a>A*</h2><h3 id="abs"><a href="#abs" class="headerlink" title="abs()"></a>abs()</h3><p>Short for absolute. 絕對值<br><br>回傳數值的絕對值，如果輸入為複數，則回傳magnitude.</p>
+<figure class="highlight python"><figcaption><span>abs()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">abs</span>(-<span class="number">2</span>)</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">abs</span>(<span class="number">0.3</span>)</span><br><span class="line"><span class="number">0.3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">abs</span>(-<span class="number">12</span>)</span><br><span class="line"><span class="number">12</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">abs</span>(-<span class="number">12.0</span>)</span><br><span class="line"><span class="number">12.0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">abs</span>(-<span class="number">12.000</span>)</span><br><span class="line"><span class="number">12.0</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/16/Built-inFunctions/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1112,8 +1218,8 @@
 
 
 <div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1124,13 +1230,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">21k</span>
+    <span title="Symbols count total">31k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">19 mins.</span>
+    <span title="Reading time total">28 mins.</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
