@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tylerastro.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.6.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="這是一系列關於我拿到天文碩士學位，我一路所學到的技能，以及我認為必須延伸的技能組的文章，技能主線會保留在Medium上，以中英文方式呈現，而技能支線，會以中文形式在GitHub.io，也就是這裡發表。預計兩邊加起來會有27篇文章，透過這些文章來檢核天文學位帶來給我哪些影響。  這是這系列的第二篇文章，第一篇文章Built-in Functions從Python內建函數開始。 在Python的語言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="loop">
+<meta property="og:url" content="https://tylerastro.github.io/2022/02/19/loop/index.html">
+<meta property="og:site_name" content="Tyler&#39;s Blog">
+<meta property="og:description" content="這是一系列關於我拿到天文碩士學位，我一路所學到的技能，以及我認為必須延伸的技能組的文章，技能主線會保留在Medium上，以中英文方式呈現，而技能支線，會以中文形式在GitHub.io，也就是這裡發表。預計兩邊加起來會有27篇文章，透過這些文章來檢核天文學位帶來給我哪些影響。  這是這系列的第二篇文章，第一篇文章Built-in Functions從Python內建函數開始。 在Python的語言">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tylerastro.github.io/2022/02/19/loop/mario.png">
+<meta property="article:published_time" content="2022-02-19T13:53:56.000Z">
+<meta property="article:modified_time" content="2022-02-19T13:54:57.462Z">
+<meta property="article:author" content="Han Tang Lin">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tylerastro.github.io/2022/02/19/loop/mario.png">
+
+
+<link rel="canonical" href="https://tylerastro.github.io/2022/02/19/loop/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://tylerastro.github.io/2022/02/19/loop/","path":"2022/02/19/loop/","title":"loop"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>loop | Tyler's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Tyler's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#for-loop"><span class="nav-number">1.</span> <span class="nav-text">for loop</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#while-loop"><span class="nav-number">2.</span> <span class="nav-text">while loop</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pass-continue-%E4%BB%A5%E5%8F%8A-break"><span class="nav-number">3.</span> <span class="nav-text">pass continue 以及 break</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pass"><span class="nav-number">3.1.</span> <span class="nav-text">pass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#continue"><span class="nav-number">3.2.</span> <span class="nav-text">continue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break"><span class="nav-number">3.3.</span> <span class="nav-text">break</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8C%E5%A0%B4%E5%8A%A0%E6%98%A0CS50-Mario-More-comfortable"><span class="nav-number">4.</span> <span class="nav-text">同場加映CS50 Mario More comfortable</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Han Tang Lin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Tylerastro" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Tylerastro" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w39398898@gmail.com" title="E-Mail → mailto:w39398898@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://astrocodertyler.medium.com/" title="Medium → https:&#x2F;&#x2F;astrocodertyler.medium.com" rel="noopener" target="_blank"><i class="fab fa-medium fa-fw"></i>Medium</a>
+      </span>
+  </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://tylerastro.github.io/2022/02/19/loop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Han Tang Lin">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tyler's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          loop
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-02-19 21:53:56 / Modified: 21:54:57" itemprop="dateCreated datePublished" datetime="2022-02-19T21:53:56+08:00">2022-02-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Along-Master/" itemprop="url" rel="index"><span itemprop="name">Along Master</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>4.2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>這是一系列關於我拿到天文碩士學位，我一路所學到的技能，以及我認為必須延伸的技能組的文章，技能主線會保留在Medium上，以中英文方式呈現，而技能支線，會以中文形式在GitHub.io，也就是這裡發表。<br>預計兩邊加起來會有27篇文章，透過這些文章來檢核天文學位帶來給我哪些影響。</p>
+</blockquote>
+<p>這是這系列的第二篇文章，第一篇文章<a href="https://tylerastro.github.io/2022/01/16/Built-inFunctions/">Built-in Functions</a>從Python內建函數開始。</p>
+<p>在Python的語言當中，只有for loop跟while loop。<br>不像其他語言可能有do-while或者case等迴圈操作。</p>
+<span id="more"></span>
+
+<h1 id="for-loop"><a href="#for-loop" class="headerlink" title="for loop"></a>for loop</h1><p>在for迴圈，這概念比較像是我們已經知道會跑幾次迴圈下，會使用for loop.<br>比如說：</p>
+<ul>
+<li>我要電腦寫出99乘法，那我已經知道有81個組合要計算</li>
+<li>對整個csv檔案寫出每一行值</li>
+<li>對於迭代物件裡面的值做處理</li>
+</ul>
+<p>最常見起手式就是<code>for i in range()</code>，因為range會回傳一個迭代物件，裡面就像是計數器一樣(0,1,2,3,4…)，代表著這個迴圈要跑幾次一樣。</p>
+<figure class="highlight python"><figcaption><span>HelloWorld</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 寫3次Hello world</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">	<span class="built_in">print</span>(<span class="string">&quot;Hello world&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p>舉更常見的例子就是要對物件內的值做迭代處理：</p>
+<figure class="highlight python"><figcaption><span>List Iterator</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">animal = [<span class="string">&#x27;horse&#x27;</span>,<span class="string">&#x27;turtle&#x27;</span>,<span class="string">&#x27;mouse&#x27;</span>,<span class="string">&#x27;donkey&#x27;</span>,<span class="string">&#x27;lion&#x27;</span>,<span class="string">&#x27;dragon&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> animal:</span><br><span class="line">	<span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
+
+<p>而如果再做共同開發，其實不僅是協作開發，自己的程式碼也應該寫的explicitly。<br>什麼叫寫的explicitly呢？ 這其實跟寫作文的風格一樣，風格含有個人的主觀想法，但大方向上應該要有個準則。<br>在這邊除了個人註解外，在for loop裡面我想要強調的是用i來做變數算是一個習慣(！？)，因為大部分教學裡面都會用i來做變數，就像是我們的笛卡兒座標系一樣，我們習慣用x, y, z來稱呼，或者到大學後會使用i, j, k（i 也有個說法是來表示index。）</p>
+<p>簡單或少量的的迴圈這樣處理可能沒問題，但當你要有兩個變數以上時，你的程式碼會越來越難讀，也就是readability會下降。</p>
+<p>從下面這例子，你認為哪種方式在下週你回頭看，可以看得比較快呢？</p>
+<figure class="highlight python"><figcaption><span>Readability</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">animals = [<span class="string">&#x27;horse&#x27;</span>,<span class="string">&#x27;turtle&#x27;</span>,<span class="string">&#x27;mouse&#x27;</span>,<span class="string">&#x27;donkey&#x27;</span>,<span class="string">&#x27;lion&#x27;</span>,<span class="string">&#x27;dragon&#x27;</span>]</span><br><span class="line">weights = [<span class="number">83</span>,<span class="number">2</span>,<span class="number">0.4</span>,<span class="number">64</span>,<span class="number">140</span>,<span class="number">999</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只使用簡單變數</span></span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> <span class="built_in">zip</span>(animals,weights):</span><br><span class="line">	<span class="built_in">print</span>(i,j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 明確變數內容</span></span><br><span class="line"><span class="keyword">for</span> animal, weight <span class="keyword">in</span> <span class="built_in">zip</span>(animals,weights):</span><br><span class="line">	<span class="built_in">print</span>(animal, weight)</span><br></pre></td></tr></table></figure>
+
+
+<p>另外在資料處理如果有用到pandas，pd.DataFrame()有個內建的iterrows()，如果要對每一列做迭代可以寫成：<br><code>for index, row in df.iterrows():</code></p>
+<p>如果需要回傳物件的index,我們也可以搭配enumerate()使用<br><code>for index, var in enumerate([&#39;horse&#39;,&#39;turtle&#39;,&#39;mouse&#39;,&#39;donkey&#39;,&#39;lion&#39;,&#39;dragon&#39;])</code><br>這樣index就會是0,1,2,3,4,5而var會是裡面的動物名稱。</p>
+<h1 id="while-loop"><a href="#while-loop" class="headerlink" title="while loop"></a>while loop</h1><p>相對於for loop，while loop比較是在一個條件下，不停地迴圈，直到條件達成。<br>相較於前面知道要跑幾次之下，while是有一個明確的目標底下在跑。</p>
+<p>最常見讓迴圈持續不停的方法就是<code>while True</code>，由於預設是true，如果沒有特別設計就不會跳出迴圈。</p>
+<figure class="highlight python"><figcaption><span>while Loop</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">5</span>:</span><br><span class="line">	<span class="built_in">print</span>(<span class="string">&quot;Hello World&quot;</span>)</span><br><span class="line">	i = i+<span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="pass-continue-以及-break"><a href="#pass-continue-以及-break" class="headerlink" title="pass continue 以及 break"></a>pass continue 以及 break</h1><p>這三個語句是Python在迴圈裡面常用的操作，可以讓我們裝沒事，跳過，以及跳出迴圈。</p>
+<h2 id="pass"><a href="#pass" class="headerlink" title="pass"></a>pass</h2><p>顧名思義什麼都不做。</p>
+<p>可以是往後才要開發，所以先pass，不然程式無法編譯。<br>可以是本身遇到這個情況就是選擇繼續，而不做任何改變。</p>
+<figure class="highlight python"><figcaption><span>pass</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">animals = [<span class="string">&#x27;horse&#x27;</span>,<span class="string">&#x27;turtle&#x27;</span>,<span class="string">&#x27;mouse&#x27;</span>,<span class="string">&#x27;donkey&#x27;</span>,<span class="string">&#x27;lion&#x27;</span>,<span class="string">&#x27;dragon&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> animal <span class="keyword">in</span> animals:</span><br><span class="line">    <span class="keyword">if</span> animal == <span class="string">&#x27;horse&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;neigh&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> animal == <span class="string">&#x27;turtle&#x27;</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">elif</span> animal == <span class="string">&#x27;mouse&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;squeak&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h2><p>中文直翻為繼續，但不要與pass搞混了，continue會<strong>跳過</strong>這次迴圈，直接進入下次迴圈。</p>
+<figure class="highlight python"><figcaption><span>continue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">animals = [<span class="string">&#x27;horse&#x27;</span>,<span class="string">&#x27;turtle&#x27;</span>,<span class="string">&#x27;mouse&#x27;</span>,<span class="string">&#x27;donkey&#x27;</span>,<span class="string">&#x27;lion&#x27;</span>,<span class="string">&#x27;dragon&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> animal <span class="keyword">in</span> animals:</span><br><span class="line">    <span class="keyword">if</span> animal == <span class="string">&#x27;horse&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;neigh&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> animal == <span class="string">&#x27;turtle&#x27;</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">elif</span> animal == <span class="string">&#x27;mouse&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;squeak&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> animal == <span class="string">&#x27;donkey&#x27;</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">elif</span> animal == <span class="string">&#x27;lion&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;roar~ roar~ roar~&#x27;</span>)</span><br><span class="line">    <span class="keyword">elif</span> animal == <span class="string">&#x27;dragon&#x27;</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;neigh</span><br><span class="line">squeak</span><br><span class="line">roar~ roar~ roar~</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="break"><a href="#break" class="headerlink" title="break"></a>break</h2><p>break會打破迴圈，直接<strong>終止</strong>迴圈。</p>
+<figure class="highlight c"><figcaption><span>C Sample</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">animals = [<span class="string">&#x27;horse&#x27;</span>,<span class="string">&#x27;turtle&#x27;</span>,<span class="string">&#x27;mouse&#x27;</span>,<span class="string">&#x27;donkey&#x27;</span>,<span class="string">&#x27;lion&#x27;</span>,<span class="string">&#x27;dragon&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> animal in animals:</span><br><span class="line">    <span class="keyword">if</span> animal == <span class="string">&#x27;horse&#x27;</span>:</span><br><span class="line">        print(<span class="string">&#x27;neigh&#x27;</span>)</span><br><span class="line">    elif animal == <span class="string">&#x27;turtle&#x27;</span>:</span><br><span class="line">        pass</span><br><span class="line">    elif animal == <span class="string">&#x27;mouse&#x27;</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    elif animal == <span class="string">&#x27;donkey&#x27;</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    elif animal == <span class="string">&#x27;lion&#x27;</span>:</span><br><span class="line">        print(<span class="string">&#x27;roar~ roar~ roar~&#x27;</span>)</span><br><span class="line">    elif animal == <span class="string">&#x27;dragon&#x27;</span>:</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">neigh</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="同場加映CS50-Mario-More-comfortable"><a href="#同場加映CS50-Mario-More-comfortable" class="headerlink" title="同場加映CS50 Mario More comfortable"></a>同場加映CS50 Mario More comfortable</h1><blockquote>
+<p>小小Teaser提供在這裡，CS50上完之後，會有完整心得文。</p>
+</blockquote>
+<p>在CS50 2021 Week 1的作業就是要用Ｃ寫來表現在馬力歐裡面的方塊。<br>我的答案裡面使用了兩種loop來達成我的目的，從中也可以比較不同語言當中，迴圈寫法有什麼差別。</p>
+<p><img src="/2022/02/19/loop/mario.png"></p>
+<figure class="highlight c"><figcaption><span>while Loop</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cs50.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pyramid</span><span class="params">(<span class="keyword">int</span> h)</span></span></span><br><span class="line"><span class="function"><span class="comment">// building blocks according to height h</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= h; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// from first layer</span></span><br><span class="line">        <span class="comment">// put space at begining</span></span><br><span class="line">        <span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (counter &lt; h &amp;&amp; counter &lt; (h - i))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">            counter++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (counter &lt; h)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;#&quot;</span>);</span><br><span class="line">            counter++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// finish left part</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;  &quot;</span>);</span><br><span class="line">        <span class="comment">// being right part</span></span><br><span class="line">        counter = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (counter &lt; i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;#&quot;</span>);</span><br><span class="line">            counter++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (counter &lt; h)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">            counter++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> height;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        height = get_int(<span class="string">&quot;What&#x27;s the height? &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (height &lt; <span class="number">1</span> || height &gt; <span class="number">8</span>);</span><br><span class="line"></span><br><span class="line">    pyramid(height);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/22/%E8%83%83%E7%97%9B%E7%95%AA/" rel="prev" title="致陪伴我青春的動畫 TIGER×DRAGON！">
+                  <i class="fa fa-chevron-left"></i> 致陪伴我青春的動畫 TIGER×DRAGON！
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Han Tang Lin</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">42k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">38 mins.</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
