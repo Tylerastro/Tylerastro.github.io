@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tylerastro.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言看了一下距離上篇文已經超過半年的時間了😱，今天想要稍微記錄一下這段時間忙些什麼，以及為什麼文章停滯。現在草稿裡面有10篇文章待產，但有7篇會直接死亡，剩下1篇會合併到這裡另外1篇技術文章關於Django整個架設網站過程會在寫完後發布。這篇文章大概是拖時間的元兇😅 What is Tlog?人家有Vlog用影像記錄生活，用文字不就是Tlog😏Tlog形式會像是雜談，聊聊近期發生的事情，算是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tlog#1">
+<meta property="og:url" content="https://tylerastro.github.io/2023/04/02/tlog/index.html">
+<meta property="og:site_name" content="Tyler&#39;s Blog">
+<meta property="og:description" content="前言看了一下距離上篇文已經超過半年的時間了😱，今天想要稍微記錄一下這段時間忙些什麼，以及為什麼文章停滯。現在草稿裡面有10篇文章待產，但有7篇會直接死亡，剩下1篇會合併到這裡另外1篇技術文章關於Django整個架設網站過程會在寫完後發布。這篇文章大概是拖時間的元兇😅 What is Tlog?人家有Vlog用影像記錄生活，用文字不就是Tlog😏Tlog形式會像是雜談，聊聊近期發生的事情，算是">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-02T09:30:18.000Z">
+<meta property="article:modified_time" content="2023-04-02T09:31:03.779Z">
+<meta property="article:author" content="Han Tang Lin">
+<meta property="article:tag" content="Tlog">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://tylerastro.github.io/2023/04/02/tlog/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://tylerastro.github.io/2023/04/02/tlog/","path":"2023/04/02/tlog/","title":"Tlog#1"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Tlog#1 | Tyler's Blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Tyler's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-Tlog"><span class="nav-number">2.</span> <span class="nav-text">What is Tlog?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Recap"><span class="nav-number">3.</span> <span class="nav-text">Recap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#A-bright-future"><span class="nav-number">4.</span> <span class="nav-text">A bright future</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Han Tang Lin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Tylerastro" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Tylerastro" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:w39398898@gmail.com" title="E-Mail → mailto:w39398898@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://astrocodertyler.medium.com/" title="Medium → https:&#x2F;&#x2F;astrocodertyler.medium.com" rel="noopener" target="_blank"><i class="fab fa-medium fa-fw"></i>Medium</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://tylerastro.github.io/2023/04/02/tlog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Han Tang Lin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tyler's Blog">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Tlog#1 | Tyler's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tlog#1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-04-02 17:30:18 / Modified: 17:31:03" itemprop="dateCreated datePublished" datetime="2023-04-02T17:30:18+08:00">2023-04-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>看了一下距離上篇文已經超過半年的時間了😱，今天想要稍微記錄一下這段時間忙些什麼，以及為什麼文章停滯。<br>現在草稿裡面有10篇文章待產，但有7篇會直接死亡，剩下1篇會合併到這裡另外1篇技術文章關於Django整個架設網站過程會在寫完後發布。這篇文章大概是拖時間的元兇😅</p>
+<h1 id="What-is-Tlog"><a href="#What-is-Tlog" class="headerlink" title="What is Tlog?"></a>What is Tlog?</h1><p>人家有Vlog用影像記錄生活，用文字不就是Tlog😏<br>Tlog形式會像是雜談，聊聊近期發生的事情，算是一個抒發心情的管道ᶘ ᵒᴥᵒᶅ</p>
+<h1 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h1><p>從2022去年6月結束當兵後，一直到12月都在忙申請國外研究所的文件，邊做研究邊處理申請然後配著Hololive ^_-<br>大概是在10月左右，因長期居家工作沒什麼機會跟人講話，才會開始看Vtuber，需要有人的聲音的感覺。看來人還是群居的生物XD</p>
+<p>在12月結束申請後，後面就是一路拼研究跟觀測網站架設，過年前後算是產量高峰，從壓力較大的申請跳轉到全力寫程式對我還是比較輕鬆的部分，這段期間把宿主星系的SED fitting跑完，也把網站大架構寫起來，雖然還是沒什麼人可以對話，不過對於看到成果還是有開心的部分。</p>
+<span id="more"></span>
+
+<p>接下來3月部份算是比較接受申請失敗的一個月份，在GradCafe上看到申請學校慢慢挑人interview以及放榜，自己都沒收到信件情況下，大概就知道機率越來越小，最後也會收到一封Thank you的信而已（苦笑）<br>3月也決定到台北一趟祝福研究所同學順利要到東大讀博，他真的是很用功的一個人，對於他能夠出國精進，往更高的學位前進其實不太意外，真心認為他是可以立足在學術界的一個人。</p>
+<p>這趟北部之旅也順路去看了在台灣上映一直很想看的鈴芽之旅(すずめの戸締まり)，可能我對於地震沒有太多聯繫，看完共鳴沒到這麼強，但配樂由RADWIMPS操刀，配合細緻的畫面，整個觀感體驗還是水準之上，不過新海誠的系列都講求寫實畫風，有時不免理科魂開始挑剔不合邏輯，但奇幻元素也就不要強求，後來也把天氣之子在Netflix補完，算是把災難3部曲做一個收尾。</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-hAaJKKn56g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<p>在3月底經歷Vtuber Pikamee的畢業，原本沒有在關注這名Vtuber<s>開水壺</s>，在3月初宣布要畢業時，才開始follow他的配信，最後跟完他的最後一場畢業生配信，原本沒想過心情會有太多起伏，面臨到這種離別才知道也是會有不捨，在未來Holomem也一定會漸漸離開，到時可能會哭得更慘吧😖</p>
+<h1 id="A-bright-future"><a href="#A-bright-future" class="headerlink" title="A bright future"></a>A bright future</h1><p>目前所做的研究做完大概就是學術的最後一舞了XD 那網站部分可以作為未來CV，大概也會提供幾年的維護，另外一個Project就是對於CPBL的裁判有一套Ump stats，這部分應該也會是未來強烈的CV特點，不過一個人要處理很多球場，還要整理資料，搭配社群推廣，現在第一場打完還處理不好，現在壓力有點大(´･_･`)</p>
+<p>三月也有Hololive Fes，這段時間看Holo的配信，但JP組因為聽不懂日文一直沒辦法跟，只能等烤肉精華出來，讓我激起學日文的精神，這段時間開始用Duolingo學日文，希望一年後的程度是可以跟生配信，才不用等烤肉精華，嘿嘿。</p>
+<p>這階段想說的應該就這些了，雖然對於新海誠的電影想說更多一些，但就先留在心裡消化一下，等哪天可能再寫一篇吧😊</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Tlog/" rel="tag"># Tlog</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/18/%E8%83%83%E7%97%9B%E7%95%AA2/" rel="prev" title="致陪伴我青春的動畫 86 不存在的戰區">
+                  <i class="fa fa-chevron-left"></i> 致陪伴我青春的動畫 86 不存在的戰區
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+<script src="https://utteranc.es/client.js"
+        repo="Tylerastro/Tylerastro.github.io"
+        issue-term="title"
+        theme="photon-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Han Tang Lin</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">78k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:11</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
