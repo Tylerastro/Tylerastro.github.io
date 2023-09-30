@@ -21,28 +21,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"tylerastro.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言看了一下距離上篇文已經超過半年的時間了😱，今天想要稍微記錄一下這段時間忙些什麼，以及為什麼文章停滯。現在草稿裡面有10篇文章待產，但有7篇會直接死亡，剩下1篇會合併到這裡另外1篇技術文章關於Django整個架設網站過程會在寫完後發布。這篇文章大概是拖時間的元兇😅 What is Tlog?人家有Vlog用影像記錄生活，用文字不就是Tlog😏Tlog形式會像是雜談，聊聊近期發生的事情，算是">
+    <meta name="description" content="一個月前拿到後端工程師的職位，在準備Canonical的時候得知了Hacktoberfest，於是今年想要也參加這項活動! If you’re seeking for an English version, here is the article on Medium  TL;DR不要往下看了！直接去官網點選參加，對開源社群貢獻出你最好的PR👊 Hacktoberfest當我在準備Canoni">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tlog#1">
-<meta property="og:url" content="https://tylerastro.github.io/2023/04/02/tlog/index.html">
+<meta property="og:title" content="Hacktoberfest 2023 - from a junior engineer perspective">
+<meta property="og:url" content="https://tylerastro.github.io/2023/09/30/hacktoberfest/index.html">
 <meta property="og:site_name" content="Tyler&#39;s Blog">
-<meta property="og:description" content="前言看了一下距離上篇文已經超過半年的時間了😱，今天想要稍微記錄一下這段時間忙些什麼，以及為什麼文章停滯。現在草稿裡面有10篇文章待產，但有7篇會直接死亡，剩下1篇會合併到這裡另外1篇技術文章關於Django整個架設網站過程會在寫完後發布。這篇文章大概是拖時間的元兇😅 What is Tlog?人家有Vlog用影像記錄生活，用文字不就是Tlog😏Tlog形式會像是雜談，聊聊近期發生的事情，算是">
+<meta property="og:description" content="一個月前拿到後端工程師的職位，在準備Canonical的時候得知了Hacktoberfest，於是今年想要也參加這項活動! If you’re seeking for an English version, here is the article on Medium  TL;DR不要往下看了！直接去官網點選參加，對開源社群貢獻出你最好的PR👊 Hacktoberfest當我在準備Canoni">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-02T09:30:18.000Z">
-<meta property="article:modified_time" content="2023-04-02T09:31:03.779Z">
+<meta property="og:image" content="https://tylerastro.github.io/2023/09/30/hacktoberfest/contributions.png">
+<meta property="article:published_time" content="2023-09-30T02:25:15.000Z">
+<meta property="article:modified_time" content="2023-09-30T02:25:15.131Z">
 <meta property="article:author" content="Han Tang Lin">
-<meta property="article:tag" content="Tlog">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tylerastro.github.io/2023/09/30/hacktoberfest/contributions.png">
 
 
-<link rel="canonical" href="https://tylerastro.github.io/2023/04/02/tlog/">
+<link rel="canonical" href="https://tylerastro.github.io/2023/09/30/hacktoberfest/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://tylerastro.github.io/2023/04/02/tlog/","path":"2023/04/02/tlog/","title":"Tlog#1"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://tylerastro.github.io/2023/09/30/hacktoberfest/","path":"2023/09/30/hacktoberfest/","title":"Hacktoberfest 2023 - from a junior engineer perspective"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Tlog#1 | Tyler's Blog</title>
+<title>Hacktoberfest 2023 - from a junior engineer perspective | Tyler's Blog</title>
   
 
 
@@ -117,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-Tlog"><span class="nav-number">2.</span> <span class="nav-text">What is Tlog?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Recap"><span class="nav-number">3.</span> <span class="nav-text">Recap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#A-bright-future"><span class="nav-number">4.</span> <span class="nav-text">A bright future</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TL-DR"><span class="nav-number">1.</span> <span class="nav-text">TL;DR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hacktoberfest"><span class="nav-number">2.</span> <span class="nav-text">Hacktoberfest</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-participate"><span class="nav-number">2.1.</span> <span class="nav-text">How to participate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-to-avoid"><span class="nav-number">2.2.</span> <span class="nav-text">What to avoid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-to-expect"><span class="nav-number">2.3.</span> <span class="nav-text">What to expect</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -192,7 +194,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://tylerastro.github.io/2023/04/02/tlog/">
+    <link itemprop="mainEntityOfPage" href="https://tylerastro.github.io/2023/09/30/hacktoberfest/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -205,12 +207,12 @@
     </span>
     
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Tlog#1 | Tyler's Blog">
+      <meta itemprop="name" content="Hacktoberfest 2023 - from a junior engineer perspective | Tyler's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Tlog#1
+          Hacktoberfest 2023 - from a junior engineer perspective
         </h1>
 
         <div class="post-meta-container">
@@ -220,9 +222,8 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2023-04-02 17:30:18 / Modified: 17:31:03" itemprop="dateCreated datePublished" datetime="2023-04-02T17:30:18+08:00">2023-04-02</time>
+      <time title="Created: 2023-09-30 10:25:15" itemprop="dateCreated datePublished" datetime="2023-09-30T10:25:15+08:00">2023-09-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -230,7 +231,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a>
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
         </span>
     </span>
 
@@ -259,20 +260,34 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>看了一下距離上篇文已經超過半年的時間了😱，今天想要稍微記錄一下這段時間忙些什麼，以及為什麼文章停滯。<br>現在草稿裡面有10篇文章待產，但有7篇會直接死亡，剩下1篇會合併到這裡另外1篇技術文章關於Django整個架設網站過程會在寫完後發布。這篇文章大概是拖時間的元兇😅</p>
-<h1 id="What-is-Tlog"><a href="#What-is-Tlog" class="headerlink" title="What is Tlog?"></a>What is Tlog?</h1><p>人家有Vlog用影像記錄生活，用文字不就是Tlog😏<br>Tlog形式會像是雜談，聊聊近期發生的事情，算是一個抒發心情的管道ᶘ ᵒᴥᵒᶅ</p>
-<h1 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h1><p>從2022去年6月結束當兵後，一直到12月都在忙申請國外研究所的文件，邊做研究邊處理申請然後配著Hololive ^_-<br>大概是在10月左右，因長期居家工作沒什麼機會跟人講話，才會開始看Vtuber，需要有人的聲音的感覺。看來人還是群居的生物XD</p>
-<p>在12月結束申請後，後面就是一路拼研究跟觀測網站架設，過年前後算是產量高峰，從壓力較大的申請跳轉到全力寫程式對我還是比較輕鬆的部分，這段期間把宿主星系的SED fitting跑完，也把網站大架構寫起來，雖然還是沒什麼人可以對話，不過對於看到成果還是有開心的部分。</p>
+        <blockquote>
+<p> 一個月前拿到後端工程師的職位，在準備Canonical的時候得知了Hacktoberfest，於是今年想要也參加這項活動! If you’re seeking for an English version, here is the article on <a href="">Medium</a></p>
+</blockquote>
+<h1 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h1><p>不要往下看了！直接去官網點選參加，對開源社群貢獻出你最好的PR👊</p>
+<h1 id="Hacktoberfest"><a href="#Hacktoberfest" class="headerlink" title="Hacktoberfest"></a>Hacktoberfest</h1><p>當我在準備Canonical面試的時候，發現到去衡量一位工程師的程度？或積極程度不單單是看contributions的圖，對於開源專案的PR,MR知道多少也是很重要，尤其是對於像是Canonical這種開源相關的公司。</p>
+<p><img src="/2023/09/30/hacktoberfest/contributions.png" alt="The ocntributions diagram of my on GitHub"><span class="image-caption">The ocntributions diagram of my on GitHub</span></p>
+<p>開源專案對於整個社群有著相當的重要性，試想我們在寫程式的時候，第一行是否都從<code>import</code> 一些常用的套件開始，但有想過這些寫好的Library從哪裡來呢？他們大部分都是開源專案在GitHub或GitLab上，任何人可以看到裡面的程式碼，並且做出改善，增強，修復錯誤，這些都是做出好的PR。</p>
 <span id="more"></span>
 
-<p>接下來3月部份算是比較接受申請失敗的一個月份，在GradCafe上看到申請學校慢慢挑人interview以及放榜，自己都沒收到信件情況下，大概就知道機率越來越小，最後也會收到一封Thank you的信而已（苦笑）<br>3月也決定到台北一趟祝福研究所同學順利要到東大讀博，他真的是很用功的一個人，對於他能夠出國精進，往更高的學位前進其實不太意外，真心認為他是可以立足在學術界的一個人。</p>
-<p>這趟北部之旅也順路去看了在台灣上映一直很想看的鈴芽之旅(すずめの戸締まり)，可能我對於地震沒有太多聯繫，看完共鳴沒到這麼強，但配樂由RADWIMPS操刀，配合細緻的畫面，整個觀感體驗還是水準之上，不過新海誠的系列都講求寫實畫風，有時不免理科魂開始挑剔不合邏輯，但奇幻元素也就不要強求，後來也把天氣之子在Netflix補完，算是把災難3部曲做一個收尾。</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-hAaJKKn56g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<p>舉個例子，現在這個Blog所使用的框架是<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo">Hexo</a>，是在Github上的開源專案，提供我們更快速簡潔的方式，管理並寫作，且架設文章在GitHub上，可以看到上面的Contributors有多少，顯示出開源專案的能力。</p>
+<blockquote>
+<p>Hacktoberfest 旨在如何帶更多正向的改變給開源社群，經由這節慶，更多開源可以受到關注，改變，而參加的人也會從中學到別人的技巧，進而提升自己的能力。</p>
+</blockquote>
+<h2 id="How-to-participate"><a href="#How-to-participate" class="headerlink" title="How to participate"></a>How to participate</h2><p>很遺憾的我今年才知道所以還沒有參加經驗，以下是關於今年相關的內容。</p>
+<hr>
+<ul>
+<li><strong>日期</strong>: 2023.9.26 - 2023.10.31這段時間都可以上網註冊，但從10.1開始發送的PR,MR才會被記錄下來。</li>
+<li><strong>平台</strong>： 今年的平台有:<a target="_blank" rel="noopener" href="https://github.com/topics/hacktoberfest">GitHub</a>以及<a target="_blank" rel="noopener" href="https://gitlab.com/explore/projects/topics/hacktoberfest">GitLab</a>，在上面找到有<code>hacktoberfest</code>標籤的repo，接著就可以想著如何做出有效的貢獻了。</li>
+<li><strong>獎勵</strong>：今年不同以往會有免費的T-shirt，這可能是因為過往有太多spam PR，導致整個活動變調，也有可能是經費考量，畢竟open source也代表的沒有收費。今年透過4個PR/MR你可以拿到digital reward。</li>
+</ul>
+<h2 id="What-to-avoid"><a href="#What-to-avoid" class="headerlink" title="What to avoid"></a>What to avoid</h2><p>如同前面所說，前幾年的PR因為免費衣服而濫用，出現許多無用的commits，比如說改動一些文字，加上你好棒等等之類，這些無用的改動都應該被避免。</p>
+<p>另外一點很簡單，不該抄襲，或者複製貼上別人的commit, branch, PR來當作自己的貢獻。</p>
+<h2 id="What-to-expect"><a href="#What-to-expect" class="headerlink" title="What to expect"></a>What to expect</h2><iframe width="560" height="315" src="https://www.youtube.com/embed/1YdvX8BW8MY?si=gawS38rgW-ROdKus" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<p>在3月底經歷Vtuber Pikamee的畢業，原本沒有在關注這名Vtuber<s>開水壺</s>，在3月初宣布要畢業時，才開始follow他的配信，最後跟完他的最後一場畢業生配信，原本沒想過心情會有太多起伏，面臨到這種離別才知道也是會有不捨，在未來Holomem也一定會漸漸離開，到時可能會哭得更慘吧😖</p>
-<h1 id="A-bright-future"><a href="#A-bright-future" class="headerlink" title="A bright future"></a>A bright future</h1><p>目前所做的研究做完大概就是學術的最後一舞了XD 那網站部分可以作為未來CV，大概也會提供幾年的維護，另外一個Project就是對於CPBL的裁判有一套Ump stats，這部分應該也會是未來強烈的CV特點，不過一個人要處理很多球場，還要整理資料，搭配社群推廣，現在第一場打完還處理不好，現在壓力有點大(´･_･`)</p>
-<p>三月也有Hololive Fes，這段時間看Holo的配信，但JP組因為聽不懂日文一直沒辦法跟，只能等烤肉精華出來，讓我激起學日文的精神，這段時間開始用Duolingo學日文，希望一年後的程度是可以跟生配信，才不用等烤肉精華，嘿嘿。</p>
-<p>這階段想說的應該就這些了，雖然對於新海誠的電影想說更多一些，但就先留在心裡消化一下，等哪天可能再寫一篇吧😊</p>
+<p>儘管今年是10週年，但我預期參加人數會比往年少，畢竟免費的衣服已經沒了🥲<br>而且有鑒於生成式AI的蓬勃發展，今年要有成功的PR難度也會比較高。當然一定還是有小問題等待被解決，但需要經驗的題目會更加的多。</p>
+<p>我很期待任何參加者透過這個活動會有相當可觀的成長，他是一個節慶，不是一個競賽，任何人都可以自由地參加並且支持開源的社群。</p>
+<hr>
+<p>在十月過後，也就是活動結束後應該會有參賽心得，到時候再回來看看我從這次活動獲得了什麼，或者貢獻了什麼😉</p>
 
     </div>
 
@@ -282,21 +297,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Tlog/" rel="tag"># Tlog</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/08/18/%E8%83%83%E7%97%9B%E7%95%AA2/" rel="prev" title="致陪伴我青春的動畫 86 不存在的戰區">
-                  <i class="fa fa-chevron-left"></i> 致陪伴我青春的動畫 86 不存在的戰區
+                <a href="/2023/09/20/tlog2/" rel="prev" title="Tlog#2 天文碩士轉職後端工程師">
+                  <i class="fa fa-chevron-left"></i> Tlog#2 天文碩士轉職後端工程師
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/04/02/hexo-2/" rel="next" title="Hexo token update">
-                  Hexo token update <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
