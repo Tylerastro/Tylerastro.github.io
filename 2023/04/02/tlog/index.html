@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
-
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -16,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"tylerastro.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tylerastro.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="前言看了一下距離上篇文已經超過半年的時間了😱，今天想要稍微記錄一下這段時間忙些什麼，以及為什麼文章停滯。現在草稿裡面有10篇文章待產，但有7篇會直接死亡，剩下1篇會合併到這裡另外1篇技術文章關於Django整個架設網站過程會在寫完後發布。這篇文章大概是拖時間的元兇😅 What is Tlog?人家有Vlog用影像記錄生活，用文字不就是Tlog😏Tlog形式會像是雜談，聊聊近期發生的事情，算是">
 <meta property="og:type" content="article">
@@ -49,6 +48,9 @@
 
 
 
+
+
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -58,8 +60,8 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
@@ -78,7 +80,7 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
     </div>
   </div>
 </div>
@@ -93,15 +95,9 @@
 
 
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -122,15 +118,15 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Han Tang Lin</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -141,45 +137,32 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/Tylerastro" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Tylerastro" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/Tylerastro" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Tylerastro" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:w39398898@gmail.com" title="E-Mail → mailto:w39398898@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <a href="mailto:w39398898@gmail.com" title="E-Mail → mailto:w39398898@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://astrocodertyler.medium.com/" title="Medium → https:&#x2F;&#x2F;astrocodertyler.medium.com" rel="noopener" target="_blank"><i class="fab fa-medium fa-fw"></i>Medium</a>
+        <a href="https://astrocodertyler.medium.com/" title="Medium → https:&#x2F;&#x2F;astrocodertyler.medium.com" rel="noopener me" target="_blank"><i class="fab fa-medium fa-fw"></i>Medium</a>
       </span>
   </div>
-
-
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
+  </aside>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -203,7 +186,7 @@
       <meta itemprop="name" content="Tyler's Blog">
       <meta itemprop="description" content="">
     </span>
-    
+
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="Tlog#1 | Tyler's Blog">
       <meta itemprop="description" content="">
@@ -236,11 +219,11 @@
 
   
     <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="Word count in article">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span class="post-meta-item-text">Word count in article: </span>
       <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
@@ -258,8 +241,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>看了一下距離上篇文已經超過半年的時間了😱，今天想要稍微記錄一下這段時間忙些什麼，以及為什麼文章停滯。<br>現在草稿裡面有10篇文章待產，但有7篇會直接死亡，剩下1篇會合併到這裡另外1篇技術文章關於Django整個架設網站過程會在寫完後發布。這篇文章大概是拖時間的元兇😅</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>看了一下距離上篇文已經超過半年的時間了😱，今天想要稍微記錄一下這段時間忙些什麼，以及為什麼文章停滯。<br>現在草稿裡面有10篇文章待產，但有7篇會直接死亡，剩下1篇會合併到這裡另外1篇技術文章關於Django整個架設網站過程會在寫完後發布。這篇文章大概是拖時間的元兇😅</p>
 <h1 id="What-is-Tlog"><a href="#What-is-Tlog" class="headerlink" title="What is Tlog?"></a>What is Tlog?</h1><p>人家有Vlog用影像記錄生活，用文字不就是Tlog😏<br>Tlog形式會像是雜談，聊聊近期發生的事情，算是一個抒發心情的管道ᶘ ᵒᴥᵒᶅ</p>
 <h1 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h1><p>從2022去年6月結束當兵後，一直到12月都在忙申請國外研究所的文件，邊做研究邊處理申請然後配著Hololive ^_-<br>大概是在10月左右，因長期居家工作沒什麼機會跟人講話，才會開始看Vtuber，需要有人的聲音的感覺。看來人還是群居的生物XD</p>
 <p>在12月結束申請後，後面就是一路拼研究跟觀測網站架設，過年前後算是產量高峰，從壓力較大的申請跳轉到全力寫程式對我還是比較輕鬆的部分，這段期間把宿主星系的SED fitting跑完，也把網站大架構寫起來，雖然還是沒什麼人可以對話，不過對於看到成果還是有開心的部分。</p>
@@ -270,7 +252,7 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-hAaJKKn56g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <p>在3月底經歷Vtuber Pikamee的畢業，原本沒有在關注這名Vtuber<s>開水壺</s>，在3月初宣布要畢業時，才開始follow他的配信，最後跟完他的最後一場畢業生配信，原本沒想過心情會有太多起伏，面臨到這種離別才知道也是會有不捨，在未來Holomem也一定會漸漸離開，到時可能會哭得更慘吧😖</p>
-<h1 id="A-bright-future"><a href="#A-bright-future" class="headerlink" title="A bright future"></a>A bright future</h1><p>目前所做的研究做完大概就是學術的最後一舞了XD 那網站部分可以作為未來CV，大概也會提供幾年的維護，另外一個Project就是對於CPBL的裁判有一套Ump stats，這部分應該也會是未來強烈的CV特點，不過一個人要處理很多球場，還要整理資料，搭配社群推廣，現在第一場打完還處理不好，現在壓力有點大(´･_･`)</p>
+<h1 id="A-bright-future"><a href="#A-bright-future" class="headerlink" title="A bright future"></a>A bright future</h1><p>目前所做的研究做完大概就是學術的最後一舞了XD 那網站部分可以作為未來CV，大概也會提供幾年的維護，另外一個Project就是對於CPBL的裁判有一套Ump stats，這部分應該也會是未來強烈的CV特點，不過一個人要處理很多球場，還要整理資料，搭配社群推廣，現在第一場打完還處理不好，現在壓力有點大(´･_･&#96;)</p>
 <p>三月也有Hololive Fes，這段時間看Holo的配信，但JP組因為聽不懂日文一直沒辦法跟，只能等烤肉精華出來，讓我激起學日文的精神，這段時間開始用Duolingo學日文，希望一年後的程度是可以跟生配信，才不用等烤肉精華，嘿嘿。</p>
 <p>這階段想說的應該就這些了，雖然對於新海誠的電影想說更多一些，但就先留在心裡消化一下，等哪天可能再寫一篇吧😊</p>
 
@@ -290,12 +272,12 @@
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2022/08/18/%E8%83%83%E7%97%9B%E7%95%AA2/" rel="prev" title="致陪伴我青春的動畫 86 不存在的戰區">
-                  <i class="fa fa-chevron-left"></i> 致陪伴我青春的動畫 86 不存在的戰區
+                  <i class="fa fa-angle-left"></i> 致陪伴我青春的動畫 86 不存在的戰區
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2023/04/02/hexo-2/" rel="next" title="Hexo token update">
-                  Hexo token update <i class="fa fa-chevron-right"></i>
+                  Hexo token update <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -321,27 +303,26 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 2021 – 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Han Tang Lin</span>
-</div>
+  <div class="copyright">
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Han Tang Lin</span>
+  </div>
 <div class="wordcount">
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">108k</span>
+    <span title="Word count total">110k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:38</span>
+    <span title="Reading time total">1:40</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
@@ -351,10 +332,23 @@
   </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
+
 
 
 

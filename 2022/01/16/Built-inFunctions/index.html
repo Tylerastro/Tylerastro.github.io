@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.0">
-
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.1.1">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -16,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"tylerastro.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"tylerastro.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="這是一系列關於我拿到天文碩士學位，我一路所學到的技能，以及我認為必須延伸的技能組的文章，技能主線會保留在Medium上，以中英文方式呈現，而技能支線，會以中文形式在GitHub.io，也就是這裡發表。預計兩邊加起來會有27篇文章，透過這些文章來檢核天文學位帶來給我哪些影響。  前言這篇文章假設你已經安裝好Python，並且能夠Compile your code，如果還不清楚，建議先閱讀Start">
 <meta property="og:type" content="article">
@@ -51,6 +50,9 @@
 
 
 
+
+
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -60,8 +62,8 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
@@ -80,7 +82,7 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
     </div>
   </div>
 </div>
@@ -95,15 +97,9 @@
 
 
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -124,15 +120,15 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Han Tang Lin</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -143,45 +139,32 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/Tylerastro" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Tylerastro" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/Tylerastro" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Tylerastro" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:w39398898@gmail.com" title="E-Mail → mailto:w39398898@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <a href="mailto:w39398898@gmail.com" title="E-Mail → mailto:w39398898@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://astrocodertyler.medium.com/" title="Medium → https:&#x2F;&#x2F;astrocodertyler.medium.com" rel="noopener" target="_blank"><i class="fab fa-medium fa-fw"></i>Medium</a>
+        <a href="https://astrocodertyler.medium.com/" title="Medium → https:&#x2F;&#x2F;astrocodertyler.medium.com" rel="noopener me" target="_blank"><i class="fab fa-medium fa-fw"></i>Medium</a>
       </span>
   </div>
-
-
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
+  </aside>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -205,7 +188,7 @@
       <meta itemprop="name" content="Tyler's Blog">
       <meta itemprop="description" content="">
     </span>
-    
+
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="Built-in Functions | Tyler's Blog">
       <meta itemprop="description" content="">
@@ -244,11 +227,11 @@
 
   
     <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Symbols count in article">
+    <span class="post-meta-item" title="Word count in article">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span class="post-meta-item-text">Word count in article: </span>
       <span>10k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
@@ -266,8 +249,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <blockquote>
+    <div class="post-body" itemprop="articleBody"><blockquote>
 <p>這是一系列關於我拿到天文碩士學位，我一路所學到的技能，以及我認為必須延伸的技能組的文章，技能主線會保留在Medium上，以中英文方式呈現，而技能支線，會以中文形式在GitHub.io，也就是這裡發表。<br>預計兩邊加起來會有27篇文章，透過這些文章來檢核天文學位帶來給我哪些影響。</p>
 </blockquote>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>這篇文章假設你已經安裝好Python，並且能夠Compile your code，如果還不清楚，建議先閱讀<a target="_blank" rel="noopener" href="https://astrocodertyler.medium.com/starting-python-765dab160d1">Starting Python</a>。</p>
@@ -313,7 +295,7 @@
 </ul>
 <p>當中還有其他指令，不過這些就足以應付大部分debug的需求了。</p>
 <h2 id="D"><a href="#D" class="headerlink" title="D*"></a>D*</h2><h3 id="delattr"><a href="#delattr" class="headerlink" title="delattr()"></a>delattr()</h3><p>在講到Class之前，我們先講到如何刪除屬性。由於Python語法是基於物件導向，任何東西都是視為一個物件在處理，類別(Class)也不例外，所以類別就會有屬性(attribute)。<br>舉個例子，<br>一個立方體的類別我們叫做cube,那立方體有的就是三邊的邊長，我們各自叫x,y,z，我們呼叫一個a為一個立方體，那他有三個屬性就分別是x,y,z，我們可以透過a.x, a.y, a.z來檢視a的屬性。當要刪除x的屬性時，可以使用delattr()。</p>
-<figure class="highlight python"><figcaption><span>delattr()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">cube</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,x,y,z</span>) -&gt; <span class="literal">None</span>:</span></span><br><span class="line">        self.x = x </span><br><span class="line">        self.y = y </span><br><span class="line">        self.z = z</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">volume</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.x * self.y * self.z</span><br><span class="line"></span><br><span class="line">a = cube(x = <span class="number">2</span>, y = <span class="number">3</span>, z = <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(a.x, a.y, a.z)</span><br><span class="line"><span class="built_in">print</span>(a.volume())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 當我們添加刪除屬性之後</span></span><br><span class="line">a = cube(x = <span class="number">2</span>, y = <span class="number">3</span>, z = <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(a.x, a.y, a.z)</span><br><span class="line"><span class="built_in">delattr</span>(a,<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(a.x, a.y, a.z)</span><br><span class="line"><span class="built_in">print</span>(a.volume())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Python 會告訴我們立方體a並沒有x的屬性</span></span><br><span class="line"><span class="built_in">print</span>(a.x, a.y, a.z)</span><br><span class="line">AttributeError: <span class="string">&#x27;cube&#x27;</span> <span class="built_in">object</span> has no attribute <span class="string">&#x27;x&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><figcaption><span>delattr()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span>  <span class="title class_">cube</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,x,y,z</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        self.x = x </span><br><span class="line">        self.y = y </span><br><span class="line">        self.z = z</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">volume</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self.x * self.y * self.z</span><br><span class="line"></span><br><span class="line">a = cube(x = <span class="number">2</span>, y = <span class="number">3</span>, z = <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(a.x, a.y, a.z)</span><br><span class="line"><span class="built_in">print</span>(a.volume())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 當我們添加刪除屬性之後</span></span><br><span class="line">a = cube(x = <span class="number">2</span>, y = <span class="number">3</span>, z = <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(a.x, a.y, a.z)</span><br><span class="line"><span class="built_in">delattr</span>(a,<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(a.x, a.y, a.z)</span><br><span class="line"><span class="built_in">print</span>(a.volume())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Python 會告訴我們立方體a並沒有x的屬性</span></span><br><span class="line"><span class="built_in">print</span>(a.x, a.y, a.z)</span><br><span class="line">AttributeError: <span class="string">&#x27;cube&#x27;</span> <span class="built_in">object</span> has no attribute <span class="string">&#x27;x&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p><code>delattr(a,&#39;x&#39;)</code> 也等同於 <code>del a.x</code></p>
@@ -411,7 +393,7 @@
 <p>先淺談class的想法，Python語言是物件導向，所以可以想像類別(class)顧名思義是一個族群，那這個族群也會有細分成小族群。</p>
 <p>以MLB為例子，MLB是Major League Baseball，美國職棒大聯盟，又可分成國家聯盟與美國聯盟，那麼底下有很多球隊，球隊底下又有不同細部員工。<br>所以我們可以說MLB是一個類別，底下單一隊伍也是一個類別，但是他們有一些類似的性質存在，比如說都打棒球？(這什麼廢話😂)<br>當你認為某些功能或行為是subclass也需要時，使用super來繼承</p>
 <p>底下這個例子可以看看利用super承接Parent class的功能以及屬性。</p>
-<figure class="highlight python"><figcaption><span>super()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MLB</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.level = <span class="string">&#x27;MLB&#x27;</span></span><br><span class="line">        self.age = <span class="number">119</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">TeamNumber</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;29 Teams in US&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;1 Team in Canada&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AL</span>(<span class="params">MLB</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.level = <span class="string">&#x27;AL&#x27;</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">TeamNumber</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().TeamNumber()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;15 Temas in AL&#x27;</span>)</span><br><span class="line"></span><br><span class="line">al = AL()</span><br><span class="line"><span class="built_in">print</span>(al.level)</span><br><span class="line">al.TeamNumber()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><figcaption><span>super()</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MLB</span>():</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.level = <span class="string">&#x27;MLB&#x27;</span></span><br><span class="line">        self.age = <span class="number">119</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">TeamNumber</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;29 Teams in US&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;1 Team in Canada&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">AL</span>(<span class="title class_ inherited__">MLB</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.level = <span class="string">&#x27;AL&#x27;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">TeamNumber</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().TeamNumber()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;15 Temas in AL&#x27;</span>)</span><br><span class="line"></span><br><span class="line">al = AL()</span><br><span class="line"><span class="built_in">print</span>(al.level)</span><br><span class="line">al.TeamNumber()</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="T"><a href="#T" class="headerlink" title="T*"></a>T*</h2><h3 id="tuple"><a href="#tuple" class="headerlink" title="tuple()"></a>tuple()</h3><p>tuple與list,str功用類似，會回傳物件的tuple性質，tuple可以想像成是list的鎖定版本，裡面的值沒辦法做更動，如果要直接寫list可以用<code>[]</code>而要直接寫tuple可以使用<code>()</code>即是tuple物件。</p>
@@ -440,12 +422,12 @@
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2021/12/24/Vim/" rel="prev" title="Vim">
-                  <i class="fa fa-chevron-left"></i> Vim
+                  <i class="fa fa-angle-left"></i> Vim
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2022/01/22/%E8%83%83%E7%97%9B%E7%95%AA/" rel="next" title="致陪伴我青春的動畫 TIGER×DRAGON！">
-                  致陪伴我青春的動畫 TIGER×DRAGON！ <i class="fa fa-chevron-right"></i>
+                  致陪伴我青春的動畫 TIGER×DRAGON！ <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -471,27 +453,26 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 2021 – 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Han Tang Lin</span>
-</div>
+  <div class="copyright">
+    &copy; 2021 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Han Tang Lin</span>
+  </div>
 <div class="wordcount">
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">108k</span>
+    <span title="Word count total">110k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:38</span>
+    <span title="Reading time total">1:40</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
@@ -501,10 +482,23 @@
   </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
+
 
 
 
