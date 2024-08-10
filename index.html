@@ -120,7 +120,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -159,6 +159,127 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://tylerastro.github.io/2024/08/10/whisper/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Han Tang Lin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tyler's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Tyler's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/10/whisper/" class="post-title-link" itemprop="url">whisper</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-08-10 15:13:54 / Modified: 15:14:48" itemprop="dateCreated datePublished" datetime="2024-08-10T15:13:54+08:00">2024-08-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>原文章在Medium上：<a target="_blank" rel="noopener" href="https://medium.com/@tylerastro/effortless-youtube-transcriptions-combining-yt-dlp-and-whisper-2098ff0511cd">Effortless YouTube Transcriptions: Combining yt-dlp and Whisper</a></p>
+<h1 id="Whisper"><a href="#Whisper" class="headerlink" title="Whisper"></a>Whisper</h1><p><a target="_blank" rel="noopener" href="https://github.com/openai/whisper">Whisper</a> 是OpenAI在2021年推出的翻譯模型，在2022年釋出開源版本。</p>
+<blockquote>
+<p>Whisper is a general-purpose speech recognition model. It is trained on a large dataset of diverse audio and is also a multitasking model that can perform multilingual speech recognition, speech translation, and language identification.</p>
+</blockquote>
+<p>因為強大的翻譯能力，我們可以拿來做影片的逐字稿。</p>
+<h1 id="素材"><a href="#素材" class="headerlink" title="素材"></a>素材</h1><p>需要翻譯用的素材當然就需要音檔，如果沒有音檔需要從YouTube上下載，可以使用<a href="https://tylerastro.github.io/2024/02/28/ytdlp/">yt-dlp</a>來下載。 記得選擇format的時候可以挑選音檔即可，可以加快下載時間。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>安裝以及使用上相當簡相當，但需要注意的是如果沒有GPU，速度上會慢上許多，此時就會建議使用Google Colab來執行。<br>文末會提供一個Colab來執行。</p>
+<h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p><code>pip install -U openai-whisper</code> 即可安裝<br>安裝完後，可以到<a target="_blank" rel="noopener" href="https://github.com/openai/whisper">Whisper</a>查看要使用哪個模型。\<br>目前官方提供的模型有</p>
+<ul>
+<li>tiny</li>
+<li>tiny.en</li>
+<li>base</li>
+<li>base.en</li>
+<li>small</li>
+<li>small.en</li>
+<li>medium</li>
+<li>medium.en</li>
+<li>large</li>
+</ul>
+<p>en結尾的是針對英文加強模型，也是只能使用在英文上，使用較小的模型即可達到不錯的效果。</p>
+<h2 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h2><figure class="highlight python"><figcaption><span>transccribe</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> whisper</span><br><span class="line"></span><br><span class="line">model = whisper.load_model(<span class="string">&quot;large&quot;</span>) <span class="comment"># 選擇你的模型名稱</span></span><br><span class="line">result = model.transcribe(<span class="string">&quot;path/to/your/file&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">model.transcribe(name, verbose=verbose, word_timestamps=time_stamp, task=task)</span><br><span class="line">在Transcribe底下，可以帶verbose, word_timestamps和task參數。</span><br><span class="line">- verbose: 會顯示目前已經完成的逐字稿</span><br><span class="line">- word_timestamps: 會顯示每個字的時間戳記</span><br><span class="line">- task 可以帶入`translate`，把非英文的語音轉成英文，但這項功能會導致timestamp無法正確顯示</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Colab"><a href="#Colab" class="headerlink" title="Colab"></a>Colab</h1><p>底下是簡易的Colab執行筆記本，選擇好需要翻譯的影片網址，然後一路執行即可。</p>
+<p><a target="_blank" rel="noopener" href="https://colab.research.google.com/drive/1d5_A0szd4XkLoe4rK-TbumAO_9vc2oEK?usp=sharing">Colab</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1120,106 +1241,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://tylerastro.github.io/2022/06/13/military/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Han Tang Lin">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Tyler's Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Tyler's Blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/06/13/military/" class="post-title-link" itemprop="url">新兵日記</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-06-13 19:30:32" itemprop="dateCreated datePublished" datetime="2022-06-13T19:30:32+08:00">2022-06-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>27k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>24 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          Personal articles. Password is required.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/06/13/military/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1243,13 +1264,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">110k</span>
+    <span title="Word count total">111k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:40</span>
+    <span title="Reading time total">1:41</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
